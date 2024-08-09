@@ -1,12 +1,12 @@
 # DVCS_ep
 
-This repository contains scripts for running a DVCS analysis on files created by the ePIC collaboration's `EICrecon` software.
+This repository contains scripts for running a DVCS analysis on files created by the ePIC collaboration's `EICrecon` software. Analysis of a given set of files can be done manually, specifying parameters on the ROOT command line, or using a provided shell script to run and create plots automatically.
 
 ## Prerequisites
 
 In order to use the code contained here, `eic-shell` must be installed on whatever system is being used run the analysis. If this is being run internally to the University of Glasgow's NHP group, `eic-shell` comes pre-loaded on some of our server systems (with the exception of `np-sigma`), and the farm nodes.
 
-## Running an analysis
+## 1. Manually running the analysis
 
 ### File lists
 
@@ -53,7 +53,7 @@ root 'DVCSPlots.C("Campaign","Energy","BeamSetting")'
 
 **Before running this for the first time**, new users should make sure that the location of the input ROOT files to the plotting macro is the same as where the main analysis is storing them.
 
-## Automatic running of the analysis
+## 2. Automatically running the analysis
 
 The script `runAnalysis.sh` is provided to automatically run the DVCS analysis code from the ePIC simulation campaign output, and plot the results generated. It takes as input the simulation campaign number, beam energy and beam divergence settings - as for the file list script - and is run in the same way from within `eic-shell`:
 
