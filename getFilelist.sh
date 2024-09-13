@@ -88,5 +88,7 @@ then
 fi
 
 
-mc ls S3/eictest/EPIC/RECO/$Camp/epic_craterlake/EXCLUSIVE/DVCS_ABCONV/$Energy | grep $BeamSet | sed "s,.*DVCS.,root://dtn-eic.jlab.org//work/eic2/EPIC/RECO/$Camp/epic_craterlake/EXCLUSIVE/DVCS_ABCONV/$Energy/DVCS.," > ../DVCS_ep/filelists/inputFileList_ePIC_"$Camp"_"$Energy"_"$BeamSet".list
+#mc ls S3/eictest/EPIC/RECO/$Camp/epic_craterlake/EXCLUSIVE/DVCS_ABCONV/$Energy | grep $BeamSet | sed "s,.*DVCS.,root://dtn-eic.jlab.org//work/eic2/EPIC/RECO/$Camp/epic_craterlake/EXCLUSIVE/DVCS_ABCONV/$Energy/DVCS.," > ../DVCS_ep/filelists/inputFileList_ePIC_"$Camp"_"$Energy"_"$BeamSet".list
 
+# Sep. '24 -> Simulation files now no longer written to S3. Need to convert purely to XRootD syntax
+xrdfs root://dtn-eic.jlab.org ls /work/eic2/EPIC/RECO/$Camp/epic_craterlake/EXCLUSIVE/DVCS_ABCONV/$Energy | grep $BeamSet | sed "s,/work,root://dtn-eic.jlab.org//work," > filelists/inputFileList_ePIC_"$Camp"_"$Energy"_"$BeamSet".list
