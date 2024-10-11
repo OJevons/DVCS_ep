@@ -28,6 +28,14 @@ class ePIC_DVCS_TASK{
   TString sInList{};
   TFile*  fOutFile{};
 
+  // Boolean behaviour selectors
+  Bool_t kUsePID{kFALSE}; // Default to using assumptions about DVCS event
+  Bool_t kUseExplicitMatch{kFALSE}; // Default to not using explicit matching between associated and reco tracks
+
+  // Global variables
+  Float_t fMass_proton{0.938272};
+  Float_t fMass_electron{0.000511};
+
   // Cut variables
   Float_t fPMax_p{};     // Maximum scattered proton momentum
   Float_t fPMax_e{};     // Maximum scattered electron momentum
@@ -66,6 +74,9 @@ class ePIC_DVCS_TASK{
   // Set input file list and output ROOT file
   void setInFileList(TString name);
   void setOutFile(TString name);
+
+  void setUsePID(Bool_t usePID){ kUsePID = usePID; }
+  void setUseExplicitMatch(Bool_t useExplicitMatch){ kUseExplicitMatch = useExplicitMatch; }
 
   // Set momenta cuts automatically
   void setMomCuts(Float_t factor = 1.);

@@ -11,7 +11,7 @@ void run_ePIC_DVCS(TString camp="Camp", TString energy="10x100", TString sett="t
   // Initialize DVCS analysis object
   std::cout<<"Settings:"<<std::endl;
   std::cout<<"\tCampaign - "<<camp<<std::endl;
-  std::cout<<"\tBeam energy - "<<energy<<std::endl;
+  std::cout<<"\tBeam energy - "<<energy<<" GeV"<<std::endl;
   std::cout<<"\tBeam setting - "<<sett<<std::endl;
 
   ePIC_DVCS_TASK *objDVCS = new ePIC_DVCS_TASK(camp,energy,sett);
@@ -23,8 +23,12 @@ void run_ePIC_DVCS(TString camp="Camp", TString energy="10x100", TString sett="t
 
   // Set DVCS cut values
   objDVCS->setMin_Q2(1);     // GeV^2
-  objDVCS->setMax_tRP(0.3);  // GeV
+  objDVCS->setMax_tRP(0.3);  // GeV^2
   objDVCS->setMax_M2miss(1); // GeV^2
+
+  // Set other behaviours
+  objDVCS->setUsePID(kFALSE);
+  objDVCS->setUseExplicitMatch(kTRUE);
 
   objDVCS->doAnalysis();
 }

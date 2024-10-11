@@ -19,10 +19,10 @@ TH1D* extractResolution(TString outputHistoName, TH2D* twoDHisto){
 		
 		TCanvas * canRes = new TCanvas("canRes1", "canRes1", 500, 500);
 		tmp->Draw();
-		if(outputHistoName == "b0_extracted_pt_resolution"){
+		/*if(outputHistoName == "b0_extracted_pt_resolution"){
 			canRes->SaveAs(Form("./resolutionFitOutput/pt_resolution_fits_bin_%d.pdf", bin));
 		}
-		else canRes->SaveAs(Form("./resolutionFitOutput/p_resolution_fits_bin_%d.pdf", bin));
+		else canRes->SaveAs(Form("./resolutionFitOutput/p_resolution_fits_bin_%d.pdf", bin));*/
 		//rmsReso = tmp->GetRMS();
 		//rmsErr  = tmp->GetRMSError();
 

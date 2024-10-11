@@ -30,7 +30,8 @@ ePIC_DVCS_TASK::ePIC_DVCS_TASK(TString camp, TString energy, TString sett){
   setSetting(sett);
 
   // Set maximum particle momenta from beam momentum setting
-  setMomCuts(1.1);
+  //setMomCuts(1.1);
+  setMomCuts(2);
 }
 
 
@@ -143,10 +144,10 @@ Bool_t ePIC_DVCS_TASK::applyCuts_Proton(std::vector<P3MVector> scatp, TString sP
     fMinPTheta = 0.0055;
     fMaxPTheta = 0.02;
   }
-  // RP angluar acceptance: < 5.5 mrad
+  // RP angluar acceptance: < 5.0 mrad
   else if(sProtonDet == "RP"){
     fMinPTheta = 0.;
-    fMaxPTheta = 0.0055;
+    fMaxPTheta = 0.005;
   }
   // Full FF proton acceptance: < 20 mrad
   else if(sProtonDet == "all"){
@@ -444,7 +445,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
   // Setup: Load input file list
   //---------------------------------------------------------
   // IF TESTING, LOAD TEST FILE LIST
-  if(sSett != "hiAcc" && sSett != "hiDiv") sInList="./filelists/inputFileList_test_10x100Jun24.list";
+  if(sSett != "hiAcc" && sSett != "hiDiv") sInList="./filelists/inputFileList_test.list";
   //if(sSett != "hiAcc" && sSett != "hiDiv") sInList="./filelists/inputFileList_single.list";
 
   ifstream fileListStream;
@@ -456,7 +457,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
   // Setup: Declare histograms
   //---------------------------------------------------------
   //Particle kinematics - MC generated protons
-  TH1D* h_eta_MCp   = new TH1D("eta_MCp",";#eta_{p'}(MC)", 250, -10.0, 10.0);
+  TH1D* h_eta_MCp   = new TH1D("eta_MCp",";#eta_{p'}(MC)", 275, -11.0, 11.0);
   TH1D* h_pt_MCp    = new TH1D("pt_MCp", ";p_{T, p'}(MC) [GeV/c]", 200, 0.0, 4.0);
   TH1D* h_p_MCp     = new TH1D("p_MCp", ";p_{p'}(MC) [GeV/c]", (Int_t)2*fPMax_p, 0.0, 2*fPMax_p);
   TH1D* h_theta_MCp = new TH1D("theta_MCp", ";#theta_{p'}(MC) [mrad]", 100, 0.0, 25.0);
@@ -464,7 +465,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_E_MCp     = new TH1D("E_MCp", ";E_{p'}(MC) [GeV]", (Int_t)1.5*fPMax_p, 0.0, 1.5*fPMax_p);
 
   //Particle kinematics - MC generated electrons
-  TH1D* h_eta_MCe   = new TH1D("eta_MCe",";#eta_{e'}(MC)", 250, -10.0, 10.0);
+  TH1D* h_eta_MCe   = new TH1D("eta_MCe",";#eta_{e'}(MC)", 275, -11.0, 11.0);
   TH1D* h_pt_MCe    = new TH1D("pt_MCe", ";p_{T, e'}(MC) [GeV/c]", 200, 0.0, 4.0);
   TH1D* h_p_MCe     = new TH1D("p_MCe", ";p_{e'}(MC) [GeV/c]", (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
   TH1D* h_theta_MCe = new TH1D("theta_MCe", ";#theta_{e'}(MC) [rad]", 100, 0.0, 3.2);
@@ -472,7 +473,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_E_MCe     = new TH1D("E_MCe", ";E_{e'}(MC) [GeV]", (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
 
   //Particle kinematics - MC generated photons
-  TH1D* h_eta_MCg   = new TH1D("eta_MCg",";#eta_{#gamma}(MC)", 250, -10.0, 10.0);
+  TH1D* h_eta_MCg   = new TH1D("eta_MCg",";#eta_{#gamma}(MC)", 275, -11.0, 11.0);
   TH1D* h_pt_MCg    = new TH1D("pt_MCg", ";p_{T, #gamma}(MC) [GeV/c]", 200, 0.0, 4.0);
   TH1D* h_p_MCg     = new TH1D("p_MCg", ";p_{#gamma}(MC) [GeV/c]", 150, 0.0, 150.);
   TH1D* h_theta_MCg = new TH1D("theta_MCg", ";#theta_{#gamma}(MC) [rad]", 100, 0.0, 3.2);
@@ -480,7 +481,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_E_MCg     = new TH1D("E_MCg", ";E_{#gamma}(MC) [GeV]", 50, 0.0, 50.);
 
   //Particle kinematics - Associated MC scattered protons
-  TH1D* h_eta_MCAp   = new TH1D("eta_MCAp",";#eta_{p'}(MC|Reco)", 250, -10.0, 10.0);
+  TH1D* h_eta_MCAp   = new TH1D("eta_MCAp",";#eta_{p'}(MC|Reco)", 275, -11.0, 11.0);
   TH1D* h_pt_MCAp    = new TH1D("pt_MCAp", ";p_{T, p'}(MC|Reco) [GeV/c]", 200, 0.0, 4.0);
   TH1D* h_p_MCAp     = new TH1D("p_MCAp", ";p_{p'}(MC|Reco) [GeV/c]", (Int_t)2*fPMax_p, 0.0, 2*fPMax_p);
   TH1D* h_theta_MCAp = new TH1D("theta_MCAp", ";#theta_{p'}(MC|Reco) [mrad]", 100, 0.0, 25.0);
@@ -488,7 +489,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_E_MCAp     = new TH1D("E_MCAp", ";E_{p'}(MC|Reco) [GeV]", (Int_t)1.5*fPMax_p, 0.0, 1.5*fPMax_p);
 
   //Particle kinematics - Associated MC scattered electrons
-  TH1D* h_eta_MCAe   = new TH1D("eta_MCAe",";#eta_{e'}(MC|Reco)", 250, -10.0, 10.0);
+  TH1D* h_eta_MCAe   = new TH1D("eta_MCAe",";#eta_{e'}(MC|Reco)", 275, -11.0, 11.0);
   TH1D* h_pt_MCAe    = new TH1D("pt_MCAe", ";p_{T, e'}(MC|Reco) [GeV/c]", 200, 0.0, 4.0);
   TH1D* h_p_MCAe     = new TH1D("p_MCAe", ";p_{e'}(MC|Reco) [GeV/c]", (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
   TH1D* h_theta_MCAe = new TH1D("theta_MCAe", ";#theta_{e'}(MC|Reco) [rad]", 100, 0.0, 3.2);
@@ -496,7 +497,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_E_MCAe     = new TH1D("E_MCAe", ";E_{e'}(MC|Reco) [GeV]", (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
 
   //Particle kinematics - Associated MC photons
-  TH1D* h_eta_MCAg   = new TH1D("eta_MCAg",";#eta_{#gamma}(MC|Reco)", 250, -10.0, 10.0);
+  TH1D* h_eta_MCAg   = new TH1D("eta_MCAg",";#eta_{#gamma}(MC|Reco)", 275, -11.0, 11.0);
   TH1D* h_pt_MCAg    = new TH1D("pt_MCAg", ";p_{T, #gamma}(MC|Reco) [GeV/c]", 200, 0.0, 4.0);
   TH1D* h_p_MCAg     = new TH1D("p_MCAg", ";p_{#gamma}(MC|Reco) [GeV/c]", 150, 0.0, 150.);
   TH1D* h_theta_MCAg = new TH1D("theta_MCAg", ";#theta_{#gamma}(MC|Reco) [rad]", 100, 0.0, 3.2);
@@ -504,7 +505,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_E_MCAg     = new TH1D("E_MCAg", ";E_{#gamma}(MC|Reco) [GeV]", 50, 0.0, 50.);
 
   //Particle kinematics - Reconstructed scattered protons - Barrel and B0
-  TH1D* h_eta_RPp   = new TH1D("eta_RPp",";#eta_{p'}(Reco)", 250, -10.0, 10.0);
+  TH1D* h_eta_RPp   = new TH1D("eta_RPp",";#eta_{p'}(Reco)", 275, -11.0, 11.0);
   TH1D* h_pt_RPp    = new TH1D("pt_RPp", ";p_{T, p'}(Reco) [GeV/c]", 200, 0.0, 4.0);
   TH1D* h_p_RPp     = new TH1D("p_RPp", ";p_{p'}(Reco) [GeV/c]", (Int_t)2*fPMax_p, 0.0, 2*fPMax_p);
   TH1D* h_theta_RPp = new TH1D("theta_RPp", ";#theta_{p'}(Reco) [mrad]", 100, 0.0, 25.0);
@@ -512,7 +513,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_E_RPp     = new TH1D("E_RPp", ";E_{p'}(Reco) [GeV]", (Int_t)1.5*fPMax_p, 0.0, 1.5*fPMax_p);
 
   //Particle kinematics - Reconstructed scattered protons - Roman Pots
-  TH1D* h_eta_RPPp   = new TH1D("eta_RPPp",";#eta_{p'}(Reco)", 250, -10.0, 10.0);
+  TH1D* h_eta_RPPp   = new TH1D("eta_RPPp",";#eta_{p'}(Reco)", 275, -11.0, 11.0);
   TH1D* h_pt_RPPp    = new TH1D("pt_RPPp", ";p_{T, p'}(Reco) [GeV/c]", 200, 0.0, 4.0);
   TH1D* h_p_RPPp     = new TH1D("p_RPPp", ";p_{p'}(Reco) [GeV/c]", (Int_t)2*fPMax_p, 0.0, 2*fPMax_p);
   TH1D* h_theta_RPPp = new TH1D("theta_RPPp", ";#theta_{p'}(Reco) [mrad]", 100, 0.0, 25.0);
@@ -520,7 +521,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_E_RPPp     = new TH1D("E_RPPp", ";E_{p'}(Reco) [GeV]", (Int_t)1.5*fPMax_p, 0.0, 1.5*fPMax_p);
 
   //Particle kinematics - Reconstructed scattered electrons - Barrel
-  TH1D* h_eta_RPe   = new TH1D("eta_RPe",";#eta_{e'}(Reco)", 250, -10.0, 10.0);
+  TH1D* h_eta_RPe   = new TH1D("eta_RPe",";#eta_{e'}(Reco)", 275, -11.0, 11.0);
   TH1D* h_pt_RPe    = new TH1D("pt_RPe", ";p_{T, e'}(Reco) [GeV/c]", 200, 0.0, 4.0);
   TH1D* h_p_RPe     = new TH1D("p_RPe", ";p_{e'}(Reco) [GeV/c]", (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
   TH1D* h_theta_RPe = new TH1D("theta_RPe", ";#theta_{e'}(Reco) [rad]", 100, 0.0, 3.2);
@@ -528,7 +529,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_E_RPe     = new TH1D("E_RPe", ";E_{e'}(Reco) [GeV]", (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
 
   //Particle kinematics - Reconstructed photons - Barrel
-  TH1D* h_eta_RPg   = new TH1D("eta_RPg",";#eta_{#gamma}(Reco)", 250, -10.0, 10.0);
+  TH1D* h_eta_RPg   = new TH1D("eta_RPg",";#eta_{#gamma}(Reco)", 275, -11.0, 11.0);
   TH1D* h_pt_RPg    = new TH1D("pt_RPg", ";p_{T, #gamma}(Reco) [GeV/c]", 200, 0.0, 4.0);
   TH1D* h_p_RPg     = new TH1D("p_RPg", ";p_{#gamma}(Reco) [GeV/c]", 150, 0.0, 150.0);
   TH1D* h_theta_RPg = new TH1D("theta_RPg", ";#theta_{#gamma}(Reco) [rad]", 100, 0.0, 3.2);
@@ -536,23 +537,23 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_E_RPg     = new TH1D("E_RPg", ";E_{#gamma}(Reco) [GeV]", 50, 0.0, 50.);
 
   // DVCS event kinematics - Generated particles
-  TH1D* h_t_MC    = new TH1D("t_MC"   , ";|t|(MC) [(GeV/c)^{2}]"  , 100, 0.0, 2.0);
-  TH1D* h_Q2_MC   = new TH1D("Q2_MC"  , ";Q^{2}(MC) [(GeV/c)^{2}]", 500, 0.0, 10.0);
+  TH1D* h_t_MC    = new TH1D("t_MC"   , ";|t|(MC) [(GeV/c^{2})^{2}]"  , 100, 0.0, 2.0);
+  TH1D* h_Q2_MC   = new TH1D("Q2_MC"  , ";Q^{2}(MC) [(GeV/c^{2})^{2}]", 500, 0.0, 10.0);
   TH1D* h_xB_MC   = new TH1D("xB_MC"  , ";log_{10}(x_{B})(MC)"    , 100, -5, 0);
   TH1D* h_y_MC    = new TH1D("y_MC"   , ";y(MC)"                  , 100, 0, 1);
   TH1D* h_TPhi_MC = new TH1D("tphi_MC", ";#phi_{h}(MC) [rad]"     , 350, -3.5, 3.5);
 
   // DVCS event kinematics - Associated MC particles
-  TH1D* h_t_MCA    = new TH1D("t_MCA"   , ";|t|(MC|Reco) [(GeV/c)^{2}]"  , 100, 0.0, 2.0);
-  TH1D* h_Q2_MCA   = new TH1D("Q2_MCA"  , ";Q^{2}(MC|Reco) [(GeV/c)^{2}]", 500, 0.0, 10.0);
+  TH1D* h_t_MCA    = new TH1D("t_MCA"   , ";|t|(MC|Reco) [(GeV/c^{2})^{2}]"  , 100, 0.0, 2.0);
+  TH1D* h_Q2_MCA   = new TH1D("Q2_MCA"  , ";Q^{2}(MC|Reco) [(GeV/c^{2})^{2}]", 500, 0.0, 10.0);
   TH1D* h_xB_MCA   = new TH1D("xB_MCA"  , ";log_{10}(x_{B})(MC|Reco)"    , 100, -5, 0);
   TH1D* h_y_MCA    = new TH1D("y_MCA"   , ";y(MCA)"                      , 100, 0, 1);
   TH1D* h_TPhi_MCA = new TH1D("tphi_MCA", ";#phi_{h}(MC|Reco) [rad]"     , 350, -3.5, 3.5);
  
   // DVCS event kinematics - Reconstructed particles
-  TH1D* h_t_RP     = new TH1D("t_RP"    , ";|t|(Reco) [(GeV/c)^{2}]"  , 100, 0.0, 2.0);
-  TH1D* h_t_RPP    = new TH1D("t_RPP"   , ";|t|(Reco) [(GeV/c)^{2}]"  , 100, 0.0, 2.0); // Roman Pots
-  TH1D* h_Q2_RP    = new TH1D("Q2_RP"   , ";Q^{2}(Reco) [(GeV/c)^{2}]", 500, 0.0, 10.0);
+  TH1D* h_t_RP     = new TH1D("t_RP"    , ";|t|(Reco) [(GeV/c^{2})^{2}]"  , 100, 0.0, 2.0);
+  TH1D* h_t_RPP    = new TH1D("t_RPP"   , ";|t|(Reco) [(GeV/c^{2})^{2}]"  , 100, 0.0, 2.0); // Roman Pots
+  TH1D* h_Q2_RP    = new TH1D("Q2_RP"   , ";Q^{2}(Reco) [(GeV/c^{2})^{2}]", 500, 0.0, 10.0);
   TH1D* h_xB_RP    = new TH1D("xB_RP"   , ";log_{10}(x_{B})(Reco)"    , 100, -5, 0);
   TH1D* h_y_RP     = new TH1D("y_RP"    , ";y(Reco)"                  , 100, 0, 1);
   TH1D* h_TPhi_RP  = new TH1D("tphi_RP" , ";#phi_{h}(Reco) [rad]"     , 350, -3.5, 3.5);
@@ -562,7 +563,9 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH2D* h_p_2d = new TH2D("h_p_2d",";p_{p'}(MC|Reco) [GeV/#it{c}];p_{p'}(Reco) [GeV/#it{c}]", 150, 0., 150., 150, 0., 150.);
   TH2D* h_pt_2d = new TH2D("h_pt_2d",";p_{T, p'}(MC|Reco) [GeV/#it{c}];p_{T, p'}(Reco) [GeV/#it{c}]", 100, 0., 2., 100, 0., 2.);
   TH2D* h_t_2d = new TH2D("h_t_2d",";|t|(MC|Reco) [(GeV/#it{c})^{2}];|t|(Reco) [(GeV/#it{c})^{2}]", 100, 0., 2., 100, 0., 2.);
-
+  TH2D* h_tRes_2d = new TH2D("h_tres_2d",";|t|_{MC} [(GeV/#it{c})^{2}];#delta t/|t|", 100, 0., 2., 800, -20., 20.);
+  TH1D* h_extracted_t_resolution;
+  
   // Angular distances between final state particles
   TH1D* h_dphi_MCeg = new TH1D("dphi_MCeg",";#delta#phi_{e'#gamma} [rad]"      ,100,-3.2,3.2);
   TH1D* h_dtheta_MCeg = new TH1D("dtheta_MCeg",";#delta#theta_{e'#gamma} [rad]",100,-3.2,3.2);
@@ -597,22 +600,22 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_Emiss3_MC = new TH1D("Emiss3_MC",";E_{miss}(MC) [GeV]",110,-5,50);
   TH1D* h_Pmiss3_MC = new TH1D("Pmiss3_MC",";p_{miss}(MC) [GeV/#it{c}]",110,-5,50);
   TH1D* h_Ptmiss3_MC = new TH1D("Ptmiss3_MC",";p_{T,miss}(MC) [GeV/#it{c}]",60,-2,10);
-  TH1D* h_M2miss3_MC = new TH1D("M2miss3_MC",";M^{2}_{miss}(MC) [(GeV/#it{c})^{2}]",200,-50,50);
+  TH1D* h_M2miss3_MC = new TH1D("M2miss3_MC",";M^{2}_{miss}(MC) [(GeV/#it{c}^{2})^{2}]",200,-50,50);
   TH1D* h_Emiss3_MCA = new TH1D("Emiss3_MCA",";E_{miss}(MC|Reco) [GeV]",110,-5,50);
   TH1D* h_Pmiss3_MCA = new TH1D("Pmiss3_MCA",";p_{miss}(MC|Reco) [GeV/#it{c}]",110,-5,50);
   TH1D* h_Ptmiss3_MCA = new TH1D("Ptmiss3_MCA",";p_{T,miss}(MC|Reco) [GeV/#it{c}]",60,-2,10);
-  TH1D* h_M2miss3_MCA = new TH1D("M2miss3_MCA",";M^{2}_{miss}(MC|Reco) [(GeV/#it{c})^{2}]",200,-50,50);
+  TH1D* h_M2miss3_MCA = new TH1D("M2miss3_MCA",";M^{2}_{miss}(MC|Reco) [(GeV/#it{c}^{2})^{2}]",200,-50,50);
   TH1D* h_Emiss3_RP = new TH1D("Emiss3_RP",";E_{miss}(Reco) [GeV]",110,-5,50);
   TH1D* h_Pmiss3_RP = new TH1D("Pmiss3_RP",";p_{miss}(Reco) [GeV/#it{c}]",110,-5,50);
   TH1D* h_Ptmiss3_RP = new TH1D("Ptmiss3_RP",";p_{T,miss}(Reco) [GeV/#it{c}]",60,-2,10);
-  TH1D* h_M2miss3_RP = new TH1D("M2miss3_RP",";M^{2}_{miss}(Reco) [(GeV/#it{c})^{2}]",200,-50,50);
+  TH1D* h_M2miss3_RP = new TH1D("M2miss3_RP",";M^{2}_{miss}(Reco) [(GeV/#it{c}^{2})^{2}]",200,-50,50);
   // Kinematic conservation - partial final state
-  TH1D* h_M2miss2ep_MC = new TH1D("M2miss2ep_MC",";M^{2}_{miss, e'p'}(MC) [(GeV/#it{c})^{2}]",200,-50,50);
-  TH1D* h_M2miss2ep_MCA = new TH1D("M2miss2ep_MCA",";M^{2}_{miss, e'p'}(MCA) [(GeV/#it{c})^{2}]",200,-50,50);
-  TH1D* h_M2miss2ep_RP = new TH1D("M2miss2ep_RP",";M^{2}_{miss, e'p'}(Reco) [(GeV/#it{c})^{2}]",200,-50,50);
-  TH1D* h_M2miss2eg_MC = new TH1D("M2miss2eg_MC",";M^{2}_{miss, e'#gamma}(MC) [(GeV/#it{c})^{2}]",300,-500,1000);
-  TH1D* h_M2miss2eg_MCA = new TH1D("M2miss2eg_MCA",";M^{2}_{miss, e'#gamma}(MCA) [(GeV/#it{c})^{2}]",300,-500,1000);
-  TH1D* h_M2miss2eg_RP = new TH1D("M2miss2eg_RP",";M^{2}_{miss, e'#gamma}(Reco) [(GeV/#it{c})^{2}]",300,-500,1000);
+  TH1D* h_M2miss2ep_MC = new TH1D("M2miss2ep_MC",";M^{2}_{miss, e'p'}(MC) [(GeV/#it{c}^{2})^{2}]",200,-50,50);
+  TH1D* h_M2miss2ep_MCA = new TH1D("M2miss2ep_MCA",";M^{2}_{miss, e'p'}(MCA) [(GeV/#it{c}^{2})^{2}]",200,-50,50);
+  TH1D* h_M2miss2ep_RP = new TH1D("M2miss2ep_RP",";M^{2}_{miss, e'p'}(Reco) [(GeV/#it{c}^{2})^{2}]",200,-50,50);
+  TH1D* h_M2miss2eg_MC = new TH1D("M2miss2eg_MC",";M^{2}_{miss, e'#gamma}(MC) [(GeV/#it{c}^{2})^{2}]",300,-500,1000);
+  TH1D* h_M2miss2eg_MCA = new TH1D("M2miss2eg_MCA",";M^{2}_{miss, e'#gamma}(MCA) [(GeV/#it{c}^{2})^{2}]",300,-500,1000);
+  TH1D* h_M2miss2eg_RP = new TH1D("M2miss2eg_RP",";M^{2}_{miss, e'#gamma}(Reco) [(GeV/#it{c}^{2})^{2}]",300,-500,1000);
   
   // Exclusivity variables - qpqg angle and cone angle
   TH1D* h_QPQG_MC  = new TH1D("qpqg_MC",";#theta_{[#gamma*p'][#gamma*#gamma]} [rad]",200,0,3.2);
@@ -623,12 +626,26 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_Cone_RP  = new TH1D("cone_RP",";#theta_{#gamma#gamma} [rad]",200,0,3.2);
   TH1D* h_Cone_RPP = new TH1D("cone_RPP",";#theta_{#gamma#gamma} [rad]",200,0,3.2);
 
+  // Photon resolution plots - energy and angle (reco - gen)
+  TH1D* h_PhotRes_E = new TH1D("photres_E",";E_{#gamma}(Reco)-E_{#gamma}(MC) [GeV]",50,0,10);
+  TH1D* h_PhotRes_theta = new TH1D("photres_theta",";#theta_{#gamma}(Reco)-#theta_{#gamma}(MC) [rad]",600,-1.5,1.5);
+  TH2D* h_PhotRes2D_theta = new TH2D("photres2d_theta",";#theta_{#gamma, MC} [rad]; #delta#theta_{#gamma}",320,0,3.2,600,-1.5,1.5);
+  TH2D* h_PhotRes2D_thetaReco = new TH2D("photres2d_thetareco",";#theta_{#gamma, Reco} [rad]; #delta#theta_{#gamma}",320,0,3.2,600,-1.5,1.5);
+  TH2D* h_2D_PhotEVeta = new TH2D("2d_photeveta",";#eta_{#gamma};E_{#gamma} [GeV]",200,-4.0,4.0,80,0,40);
+  // 2D distributions
+  TH2D* h_2D_xVt_MC = new TH2D("2d_xvt_mc",";|t|_{MC} [GeV^{2}];log_{10}(x_{B,MC})",100,0.0,2.0,100,-5,0);
+  TH2D* h_2D_xVt_MCA = new TH2D("2d_xvt_mca",";|t|_{MC|Reco} [GeV^{2}];log_{10}(x_{B,MC|Reco})",100,0.0,2.0,100,-5,0);
+  TH2D* h_2D_xVt_RP = new TH2D("2d_xvt_rp",";|t|_{Reco} [GeV^{2}];log_{10}(x_{B,Reco})",100,0.0,2.0,100,-5,0);
+  TH2D* h_2D_xVQ2_MC = new TH2D("2d_xvq2_mc",";Q^{2}_{MC} [GeV^{2}];log_{10}(x_{B,MC})",500,0.0,10.0,100,-5,0);
+  TH2D* h_2D_xVQ2_MCA = new TH2D("2d_xvq2_mca",";Q^{2}_{MC|Reco} [GeV^{2}];log_{10}(x_{B,MC|Reco})",500,0.0,10.0,100,-5,0);
+  TH2D* h_2D_xVQ2_RP = new TH2D("2d_xvq2_rp",";Q^{2}_{Reco} [GeV^{2}];log_{10}(x_{B,Reco})",500,0.0,10.0,100,-5,0);
+
+
   //---------------------------------------------------------
   // Loop over files in list
   //---------------------------------------------------------
   int fileCounter{0};
   while(getline(fileListStream,fileName)){
-
     //---------------------------------------------------------
     // Open 1 file from list at a time, then get event TTree
     //---------------------------------------------------------
@@ -656,10 +673,10 @@ void ePIC_DVCS_TASK::doAnalysis(){
     TTreeReaderArray<double> mc_mass_array      = {tree_reader, "MCParticles.mass"};
     TTreeReaderArray<int>    mc_genStatus_array = {tree_reader, "MCParticles.generatorStatus"};
     TTreeReaderArray<int>    mc_pdg_array       = {tree_reader, "MCParticles.PDG"};    
-    // Reconstructed/MC particle associations
+    // Reconstructed/MC particle associations - BARREL (using ReconstructedParticles branch)
     TTreeReaderArray<unsigned int> assoc_rec_id = {tree_reader, "ReconstructedParticleAssociations.recID"};
     TTreeReaderArray<unsigned int> assoc_sim_id = {tree_reader, "ReconstructedParticleAssociations.simID"};
-    // Reconstructed particles
+    // Reconstructed particles - BARREL (using ReconstructedParticles branch)
     TTreeReaderArray<float>  re_px_array     = {tree_reader, "ReconstructedParticles.momentum.x"};
     TTreeReaderArray<float>  re_py_array     = {tree_reader, "ReconstructedParticles.momentum.y"};
     TTreeReaderArray<float>  re_pz_array     = {tree_reader, "ReconstructedParticles.momentum.z"};
@@ -667,6 +684,16 @@ void ePIC_DVCS_TASK::doAnalysis(){
     TTreeReaderArray<float>  re_charge_array = {tree_reader, "ReconstructedParticles.charge"};
     TTreeReaderArray<float>  re_mass_array   = {tree_reader, "ReconstructedParticles.mass"};
     TTreeReaderArray<int>    re_pdg_array    = {tree_reader, "ReconstructedParticles.PDG"};
+    // Reconstructed/MC particle associations - B0 (using ReconstructedTruthSeededChargedParticles branch)
+    TTreeReaderArray<unsigned int> tsassoc_rec_id = {tree_reader, "ReconstructedTruthSeededChargedParticleAssociations.recID"};
+    TTreeReaderArray<unsigned int> tsassoc_sim_id = {tree_reader, "ReconstructedTruthSeededChargedParticleAssociations.simID"};
+    // Reconstructed particles - B0 (using ReconstructedTruthSeededChargedParticles branch)
+    TTreeReaderArray<float>  tsre_px_array     = {tree_reader, "ReconstructedTruthSeededChargedParticles.momentum.x"};
+    TTreeReaderArray<float>  tsre_py_array     = {tree_reader, "ReconstructedTruthSeededChargedParticles.momentum.y"};
+    TTreeReaderArray<float>  tsre_pz_array     = {tree_reader, "ReconstructedTruthSeededChargedParticles.momentum.z"};
+    TTreeReaderArray<float>  tsre_e_array      = {tree_reader, "ReconstructedTruthSeededChargedParticles.energy"};
+    TTreeReaderArray<float>  tsre_charge_array = {tree_reader, "ReconstructedTruthSeededChargedParticles.charge"};
+    TTreeReaderArray<float>  tsre_mass_array   = {tree_reader, "ReconstructedTruthSeededChargedParticles.mass"};
     // B0 tracker hits
     TTreeReaderArray<float> b0_hits_x    = {tree_reader, "B0TrackerRecHits.position.x"};
     TTreeReaderArray<float> b0_hits_y    = {tree_reader, "B0TrackerRecHits.position.y"};
@@ -705,8 +732,8 @@ void ePIC_DVCS_TASK::doAnalysis(){
       vector<P3MVector> scatg4_aso;   // Scattered photon (associated MC)
       // 4-vectors for reconstructed particles (SEPARATE PROTONS FOR B0 AND ROMAN POTS)
       vector<P3MVector> scate4_rec;   // Scattered electron (reconstructed)
-      vector<P3MVector> scatp4_rec;   // Scattered proton (reconstructed)
-      vector<P3MVector> scatp4_rom;   // Scattered proton (Roman Pots)
+      vector<P3MVector> scatp4_rec;   // Scattered proton (B0 reconstructed)
+      vector<P3MVector> scatp4_rom;   // Scattered proton (Roman Pots reconstructed)
       vector<P3MVector> scatg4_rec;   // Scattered photon (reconstructed)      
 
       // Holding 3-vectors
@@ -756,51 +783,140 @@ void ePIC_DVCS_TASK::doAnalysis(){
 	} // Found scattered particles
       }// End of generated particles loop
       
-      // 2. Associated MC (scattered)
-      for(unsigned int iAssoc{0};iAssoc<assoc_rec_id.GetSize();iAssoc++){
-	unsigned int mc_assoc_index = assoc_sim_id[iAssoc];
+      // 2. and 3. Associated MC tracks and their matched reconstucted tracks
+      // ONLY IF USING EXPLICIT TRACK MATCHING
+      if(kUseExplicitMatch){
+	unsigned int mc_assoc_index = -1;
+	// LOOK FOR ELECTRONS AND PHOTONS (using ReconstructedParticleAssociations)
+	for(unsigned int iAssoc{0};iAssoc<assoc_rec_id.GetSize();iAssoc++){
+	  mc_assoc_index = assoc_sim_id[iAssoc];
 
-      	assoctrk.SetXYZ(mc_px_array[mc_assoc_index], mc_py_array[mc_assoc_index], mc_pz_array[mc_assoc_index]); 
-	P3MVector q_assoc(assoctrk.X(),assoctrk.Y(),assoctrk.Z(),mc_mass_array[mc_assoc_index]);
+	  // If reco track isn't associated to an MC track, then skip
+	  if(mc_assoc_index == -1) continue;
 	
-	// Undo afterburner
-	undoAfterburn(q_assoc);
+	  assoctrk.SetXYZ(mc_px_array[mc_assoc_index], mc_py_array[mc_assoc_index], mc_pz_array[mc_assoc_index]); 
+	  P3MVector q_assoc(assoctrk.X(),assoctrk.Y(),assoctrk.Z(),mc_mass_array[mc_assoc_index]);
+	  undoAfterburn(q_assoc);
+	  recotrk.SetXYZ(re_px_array[iAssoc], re_py_array[iAssoc], re_pz_array[iAssoc]);
+	  P3MVector q_reco(recotrk.X(),recotrk.Y(),recotrk.Z(),mc_mass_array[mc_assoc_index]);
+	  undoAfterburn(q_reco);
 
-	// Look for scattered particles ==> Generator status 1
-	if(mc_genStatus_array[mc_assoc_index] == 1){
-	  if(mc_pdg_array[mc_assoc_index] == 2212){
-	    scatp4_aso.push_back(q_assoc);
+	  // Fill track vectors based on associated PID
+	  // Electrons
+	  if(mc_genStatus_array[mc_assoc_index] == 1 && mc_pdg_array[mc_assoc_index] == 11){ 
+	    scate4_aso.push_back(q_assoc); 
+	    scate4_rec.push_back(q_reco); 
 	  }
-	  if(mc_pdg_array[mc_assoc_index] == 11){
-	    scate4_aso.push_back(q_assoc);
+	  // Photons
+	  if(mc_genStatus_array[mc_assoc_index] == 1 && mc_pdg_array[mc_assoc_index] == 22){ 
+	    scatg4_aso.push_back(q_assoc); 
+	    scatg4_rec.push_back(q_reco); 
 	  }
-	  if(mc_pdg_array[mc_assoc_index] == 22){
-	    scatg4_aso.push_back(q_assoc);
+	} // End of associations loop
+
+	mc_assoc_index=-1; // Reset association index
+	// THEN LOOK FOR PROTONS (using ReconstructedTruthSeededChargedParticleAssociations)
+	for(unsigned int iTSAssoc{0};iTSAssoc<tsassoc_rec_id.GetSize();iTSAssoc++){
+	  mc_assoc_index = tsassoc_sim_id[iTSAssoc];
+
+	  // Only care about protons here (PID 2212)
+	  if(mc_assoc_index != -1 && mc_genStatus_array[mc_assoc_index] == 1 && mc_pdg_array[mc_assoc_index] == 2212){
+	    assoctrk.SetXYZ(mc_px_array[mc_assoc_index], mc_py_array[mc_assoc_index], mc_pz_array[mc_assoc_index]); 
+	    P3MVector q_assoc(assoctrk.X(),assoctrk.Y(),assoctrk.Z(),mc_mass_array[mc_assoc_index]);
+	    undoAfterburn(q_assoc);
+	    recotrk.SetXYZ(tsre_px_array[iTSAssoc], tsre_py_array[iTSAssoc], tsre_pz_array[iTSAssoc]);
+	    P3MVector q_reco(recotrk.X(),recotrk.Y(),recotrk.Z(),mc_mass_array[mc_assoc_index]);
+	    undoAfterburn(q_reco);
+
+	    scatp4_aso.push_back(q_assoc); 
+	    scatp4_rec.push_back(q_reco); 
 	  }
-	} // Found associated particles
-      }// End of associated particles loop
+	} // End of truth-seeded association loop
+      }
+
+      // 2. and 3. Associated MC and reconstructed tracks
+      // IF NOT USING EXPLICIT MATCHING (default behaviour)
+      else if(!kUseExplicitMatch){
+	// 2. Associated MC (scattered)
+	for(unsigned int iAssoc{0};iAssoc<assoc_rec_id.GetSize();iAssoc++){
+	  unsigned int mc_assoc_index = assoc_sim_id[iAssoc];
+	  assoctrk.SetXYZ(mc_px_array[mc_assoc_index], mc_py_array[mc_assoc_index], mc_pz_array[mc_assoc_index]); 
+	  P3MVector q_assoc(assoctrk.X(),assoctrk.Y(),assoctrk.Z(),mc_mass_array[mc_assoc_index]);
+	  // Undo afterburner
+	  undoAfterburn(q_assoc);
+	  // Look for scattered particles ==> Generator status 1
+	  if(mc_genStatus_array[mc_assoc_index] == 1){
+	    if(mc_pdg_array[mc_assoc_index] == 11){ scate4_aso.push_back(q_assoc); }
+	    if(mc_pdg_array[mc_assoc_index] == 22){ scatg4_aso.push_back(q_assoc); }
+	  } // Found associated particles
+	}// End of associated particles loop
+	
+	// 2a. Associated MC protons (found using different association branch)
+	for(unsigned int iTSAssoc{0};iTSAssoc<tsassoc_rec_id.GetSize();iTSAssoc++){
+	  unsigned int mc_assoc_index = tsassoc_sim_id[iTSAssoc];
+	  assoctrk.SetXYZ(mc_px_array[mc_assoc_index], mc_py_array[mc_assoc_index], mc_pz_array[mc_assoc_index]); 
+	  P3MVector q_assoc(assoctrk.X(),assoctrk.Y(),assoctrk.Z(),mc_mass_array[mc_assoc_index]);
+	  undoAfterburn(q_assoc);
+	  
+	  if(mc_genStatus_array[mc_assoc_index] == 1 && mc_pdg_array[mc_assoc_index] == 2212){ scatp4_aso.push_back(q_assoc); }
+	  
+	} // End of truth-seeded association loop
       
-      // 3. Reconstructed particles
-      // Start with ACTS reconstructed particles (barrel and B0)
-      for(int ireco{0}; ireco<re_px_array.GetSize(); ireco++){
-	recotrk.SetXYZ(re_px_array[ireco], re_py_array[ireco], re_pz_array[ireco]);
-	P3MVector q_reco(recotrk.X(),recotrk.Y(),recotrk.Z(),re_mass_array[ireco]);
-	
-	// Undo afterburner
-	undoAfterburn(q_reco);
-	
-	// Need to identify protons NOT from the real reported PDG value.
-	// Using combination of particle charge and mass instead
-	if(TMath::Abs(re_mass_array[ireco]-0.938)<0.1 && re_charge_array[ireco]==1){
-	  scatp4_rec.push_back(q_reco);
-	}
-	if(re_pdg_array[ireco] == 11){
-	  scate4_rec.push_back(q_reco);
-	}
-	if(re_pdg_array[ireco] == 22){
-	  scatg4_rec.push_back(q_reco);
-	}
-      }// End of ACTS reconstructed particles loop
+	// 3. Reconstructed particles
+	// Start with ACTS reconstructed particles (barrel and B0)
+	for(int ireco{0}; ireco<re_px_array.GetSize(); ireco++){
+	  recotrk.SetXYZ(re_px_array[ireco], re_py_array[ireco], re_pz_array[ireco]);
+	  // If not using ePIC PID, assume particles based on charge of track
+	  // Look for electrons and photons from ReconstructedParticles branch
+	  if(!kUsePID){
+	    // Negative => ELECTRON
+	    if(re_charge_array[ireco] == -1){
+	      P3MVector q_reco(recotrk.X(),recotrk.Y(),recotrk.Z(),fMass_electron);
+	      undoAfterburn(q_reco);
+	      scate4_rec.push_back(q_reco);
+	    }
+	    // Neutral => REAL PHOTON
+	    if(re_charge_array[ireco] == 0){
+	      P3MVector q_reco(recotrk.X(),recotrk.Y(),recotrk.Z(),0);
+	      undoAfterburn(q_reco);
+	      scatg4_rec.push_back(q_reco);
+	    }
+	  }
+	  // Using ePIC PID
+	  else{
+	    P3MVector q_reco(recotrk.X(),recotrk.Y(),recotrk.Z(),re_mass_array[ireco]);
+	    // Undo afterburner
+	    undoAfterburn(q_reco);
+	    if(re_pdg_array[ireco] == 11){ scate4_rec.push_back(q_reco); }
+	    if(re_pdg_array[ireco] == 22){ scatg4_rec.push_back(q_reco); }
+	  }
+	}// End of ACTS reconstructed particles loop
+
+	// 3a. ReconstructedB0 protons (ReconstructedTruthSeededChargedParticles branch)
+	for(int ireco{0}; ireco<tsre_px_array.GetSize(); ireco++){
+	  recotrk.SetXYZ(tsre_px_array[ireco], tsre_py_array[ireco], tsre_pz_array[ireco]);
+	  
+	  // Using track charge
+	  if(!kUsePID){
+	    // Positive => PROTON
+	    if(re_charge_array[ireco] == 1){
+	      P3MVector q_reco(recotrk.X(),recotrk.Y(),recotrk.Z(),fMass_proton);
+	      undoAfterburn(q_reco);
+	      scatp4_rec.push_back(q_reco);
+	    }
+	  }
+	  
+	  // Not using track charge
+	  else{
+	    P3MVector q_reco(recotrk.X(),recotrk.Y(),recotrk.Z(),tsre_mass_array[ireco]);
+	    undoAfterburn(q_reco);
+	    // Select on protons with eta cut
+	    if(q_reco.Eta() > 4.2){ scatp4_rec.push_back(q_reco); }
+	  }
+	}// End of truth seeded charged particles
+
+      }
+
       // Add in RP hits - only looking at protons
       // NO NEED TO UNDO AFTERBURNER FOR FF DETECTORS - NOT APPLIED IN FIRST PLACE
       for(int irpreco{0}; irpreco<rp_px_array.GetSize(); irpreco++){
@@ -811,7 +927,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
 	  scatp4_rom.push_back(q_rpreco);
 	}
       }// End of RP reconstructed particles loop
-
+            
       //---------------------------------------------------------
       // Fill histograms
       //---------------------------------------------------------
@@ -880,6 +996,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
 	  }
 	}
       } // FILLED MC GENERATED HISTOS
+
       // Decide minimum xB value from MC generated histogram
       fxB_Tail = h_xB_MC->GetBinLowEdge( h_xB_MC->FindFirstBinAbove(0) );
       // Associated MC
@@ -944,6 +1061,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
 	  }
 	}
       } // FILLED ASSOCIATED MC HISTOS
+
       // Reconstructed particles - Barrel/B0
       // Need Q2 for electron cuts
       if(scate4_rec.size() == 0) fQ2 = 0;
@@ -1033,14 +1151,28 @@ void ePIC_DVCS_TASK::doAnalysis(){
 	  }
 	}
       } // FILLED RECONSTRUCTED HISTOS
-      
+
       // 2D histograms for proton momenta
       if(scatp4_aso.size()==1 && scatp4_rec.size()==1){
 	h_p_2d->Fill(scatp4_aso[0].P(), scatp4_rec[0].P());
 	h_pt_2d->Fill(scatp4_aso[0].Pt(), scatp4_rec[0].Pt());
 	h_t_2d->Fill(calcT(beamp4, scatp4_aso[0]), calcT(beamp4, scatp4_rec[0]));
       }
-      
+
+      // Fill 2D t-resolution
+      // ASSUME THAT GENERATED POSITIVE TRACK MATCHES RECONSTRUCTED POSITIVE TRACK
+      Float_t t_rec{0}, t_gen{0};
+      if(applyCuts_Proton(scatp4_rec, "B0") && applyCuts_Proton(scatp4_gen, "all")){
+	t_gen = calcT(beamp4, scatp4_gen[0]);
+	t_rec = calcT(beamp4, scatp4_rec[0]);
+	h_tRes_2d->Fill(t_gen, TMath::Abs(t_rec-t_gen)/t_gen);
+      }
+      if(applyCuts_Proton(scatp4_rom, "RP") && applyCuts_Proton(scatp4_gen, "all")){
+	t_gen = calcT(beamp4, scatp4_gen[0]);
+	t_rec = calcT(beamp4, scatp4_rom[0]);
+	h_tRes_2d->Fill(t_gen, TMath::Abs(t_rec-t_gen)/t_gen);
+      }
+
       // Standalone histograms - B0 occupancies
       double hit_x = -9999.;
       double hit_y = -9999.;
@@ -1072,17 +1204,21 @@ void ePIC_DVCS_TASK::doAnalysis(){
 	if(hit_z > 6400 && hit_z < 6500){ h_B0_occupancy_map_layer_2->Fill(hit_x, hit_y); }
 	if(hit_z > 6700 && hit_z < 6750){ h_B0_occupancy_map_layer_3->Fill(hit_x, hit_y); }
       }
-      
-      // Standalone histograms - p/pT resolutions (ONLY FOR B0)
-      for(int i{0}; i<scatp4_rec.size(); i++){
-	double delPt = scatp4_rec[i].Pt() - scatp4_aso[i].Pt();
-	double delP = scatp4_rec[i].P() - scatp4_aso[i].P();
 
-	//if(scatp4_aso[i].P() >= 80 && scatp4_aso[i].P() <= 100){
-	h_b0_pt_resolution->Fill(delPt/scatp4_aso[i].Pt());
-	h_b0_pt_resolution_percent->Fill(scatp4_aso[i].Pt(), delPt/scatp4_aso[i].Pt());
-	h_b0_p_resolution_percent->Fill(scatp4_aso[i].P(), delP/scatp4_aso[i].P());
-	//}
+      // Standalone histograms - p/pT resolutions (ONLY FOR B0)
+      // NOTE: Can ONLY match tracks to associated MC -> IF MCA ARRAY IS SMALLER THAN RECO ARRAY, CANNOT USE
+      // Force at least 1 proton in MCA and reco arrays
+      if( scatp4_aso.size()!=0 && scatp4_rec.size()!=0 && scatp4_aso.size()==scatp4_rec.size() ){
+	for(int i{0}; i<scatp4_rec.size(); i++){
+	  double delPt = scatp4_rec[i].Pt() - scatp4_aso[i].Pt();
+	  double delP = scatp4_rec[i].P() - scatp4_aso[i].P();
+	  
+	  //if(scatp4_aso[i].P() >= 80 && scatp4_aso[i].P() <= 100){
+	  h_b0_pt_resolution->Fill(delPt/scatp4_aso[i].Pt());
+	  h_b0_pt_resolution_percent->Fill(scatp4_aso[i].Pt(), delPt/scatp4_aso[i].Pt());
+	  h_b0_p_resolution_percent->Fill(scatp4_aso[i].P(), delP/scatp4_aso[i].P());
+	  //}
+	}
       }
 
       // Standalone histograms - Roman Pots occupancies
@@ -1090,7 +1226,7 @@ void ePIC_DVCS_TASK::doAnalysis(){
     	h_rp_occupancy_map->Fill(global_hit_RP_x[iRPPart], global_hit_RP_y[iRPPart]);
 	h_rp_z->Fill(global_hit_RP_z[iRPPart]);
       }
-      
+
       //------------------------------------------------------------
       // Standalone histograms -  Exclusivity variables
       //------------------------------------------------------------
@@ -1158,11 +1294,51 @@ void ePIC_DVCS_TASK::doAnalysis(){
       if(scate4_rec.size()==1 && scatg4_rec.size()==1 && scate4_rec[0].P()<=fPMax_e){
 	h_M2miss2eg_RP->Fill(calcM2Miss_2Body(beame4, beamp4, scate4_rec[0], scatg4_rec[0]));
       }
+
+      //------------------------------------------------------------
+      // Standalone histograms -  Photon resolutions
+      //------------------------------------------------------------
+      if(applyCuts_Photon(scatg4_rec) && applyCuts_Photon(scatg4_aso)){
+	h_PhotRes_E->Fill(scatg4_rec[0].E() - scatg4_aso[0].E());
+	h_PhotRes_theta->Fill(scatg4_rec[0].Theta() - scatg4_aso[0].Theta());
+	h_PhotRes2D_theta->Fill(scatg4_aso[0].Theta(), scatg4_rec[0].Theta() - scatg4_aso[0].Theta());
+	h_PhotRes2D_thetaReco->Fill(scatg4_rec[0].Theta(), scatg4_rec[0].Theta() - scatg4_aso[0].Theta());
+      }
+      if(applyCuts_Photon(scatg4_rec)) h_2D_PhotEVeta->Fill(scatg4_rec[0].Eta(), scatg4_rec[0].E());
+
+      //------------------------------------------------------------
+      // Standalone histograms -  2D distributions (t vs xB)
+      //------------------------------------------------------------
+      if(applyCuts_All(beame4, beamp4, scate4_gen, scatp4_gen, scatg4_gen, "all")){
+	h_2D_xVt_MC->Fill(calcT(beamp4, scatp4_gen[0]), TMath::Log10(calcBjorkenX(beame4, scate4_gen[0], beamp4)));
+      }
+      if(applyCuts_All(beame4, beamp4, scate4_aso, scatp4_aso, scatg4_aso, "all")){
+	h_2D_xVt_MCA->Fill(calcT(beamp4, scatp4_aso[0]), TMath::Log10(calcBjorkenX(beame4, scate4_aso[0], beamp4)));
+      }
+      if(applyCuts_All(beame4, beamp4, scate4_rec, scatp4_rec, scatg4_rec, "B0")){
+	h_2D_xVt_RP->Fill(calcT(beamp4, scatp4_rec[0]), TMath::Log10(calcBjorkenX(beame4, scate4_rec[0], beamp4)));
+      }
+      if(applyCuts_All(beame4, beamp4, scate4_rec, scatp4_rom, scatg4_rec, "RP")){
+	h_2D_xVt_RP->Fill(calcT(beamp4, scatp4_rom[0]), TMath::Log10(calcBjorkenX(beame4, scate4_rec[0], beamp4)));
+      }
+
+      //------------------------------------------------------------
+      // Standalone histograms -  2D distributions (Q2 vs xB)
+      //------------------------------------------------------------
+      if(applyCuts_Electron(scate4_gen)){
+	h_2D_xVQ2_MC->Fill(calcQ2(beame4, scate4_gen[0]), TMath::Log10(calcBjorkenX(beame4, scate4_gen[0], beamp4)));
+      }
+      if(applyCuts_Electron(scate4_aso)){
+	h_2D_xVQ2_MCA->Fill(calcQ2(beame4, scate4_aso[0]), TMath::Log10(calcBjorkenX(beame4, scate4_aso[0], beamp4)));
+      }
+      if(applyCuts_Electron(scate4_rec)){
+	h_2D_xVQ2_RP->Fill(calcQ2(beame4, scate4_rec[0]), TMath::Log10(calcBjorkenX(beame4, scate4_rec[0], beamp4)));
+      }
+
     } // END EVENT/TTREEREADER LOOP
 
     inputRootFile->Close();
   } // END OF FILE LOOP
-
 
   //------------------------------------------------------------
   // Calculate B0 resolutions
@@ -1176,6 +1352,11 @@ void ePIC_DVCS_TASK::doAnalysis(){
   h_b0_extracted_p_resolution = extractResolution("b0_extracted_p_resolution", h_b0_p_resolution_percent);
   h_b0_extracted_p_resolution->GetXaxis()->SetTitle("p_{MC} [GeV/c]");
   h_b0_extracted_p_resolution->GetYaxis()->SetTitle("#Delta p/p_{MC}");
+
+  // t resolution (also includes RP)
+  h_extracted_t_resolution = extractResolution("extracted_t_resolution",h_tRes_2d);
+  h_extracted_t_resolution->GetXaxis()->SetTitle("|t|_{MC} [GeV^{2}]");
+  h_extracted_t_resolution->GetYaxis()->SetTitle("|t|_{MC} [GeV^{2}]");
   
   // Check that errors aren't too large - if are, set bin content to -1
   for(int binp{1}; binp<h_b0_extracted_p_resolution->GetNbinsX(); binp++){
@@ -1295,6 +1476,8 @@ void ePIC_DVCS_TASK::doAnalysis(){
   h_p_2d->Write();
   h_pt_2d->Write();
   h_t_2d->Write();
+  h_tRes_2d->Write();
+  h_extracted_t_resolution->Write();
   // B0 occupancies (tracker and ECAL)
   h_B0_occupancy_map_layer_0->Write();
   h_B0_occupancy_map_layer_1->Write();
@@ -1331,7 +1514,20 @@ void ePIC_DVCS_TASK::doAnalysis(){
   h_M2miss2eg_MC->Write();
   h_M2miss2eg_MCA->Write();
   h_M2miss2eg_RP->Write();
-  
+  // Photon resolutions
+  h_PhotRes_E->Write();
+  h_PhotRes_theta->Write();
+  h_PhotRes2D_theta->Write();
+  h_PhotRes2D_thetaReco->Write();
+  h_2D_PhotEVeta->Write();
+  // 2D distributions
+  h_2D_xVt_MC->Write();
+  h_2D_xVt_MCA->Write();
+  h_2D_xVt_RP->Write();
+  h_2D_xVQ2_MC->Write();
+  h_2D_xVQ2_MCA->Write();
+  h_2D_xVQ2_RP->Write();
+
   fOutFile->Close();
 
   return;
