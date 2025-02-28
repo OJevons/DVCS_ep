@@ -1,9 +1,9 @@
 // Running macro for ePIC DVCS analysis
-#include "ePIC_DVCS_TASK.cxx"
+#include "ePIC_DVCS_QA.cxx"
 const float fMass_proton{0.938272};
 const Float_t fMass_electron{0.000511};
 
-void run_ePIC_DVCS(TString camp="Camp", TString energy="10x100", TString sett="test", TString comment="X"){
+void run_ePIC_DVCS_QA(TString camp="Camp", TString energy="10x100", TString sett="test", TString comment="X"){
 
   std::cout<<"----------------------------------------------------"<<std::endl;
   std::cout<<"                 ePIC DVCS Analysis                 "<<std::endl;
@@ -18,7 +18,11 @@ void run_ePIC_DVCS(TString camp="Camp", TString energy="10x100", TString sett="t
 
   ePIC_DVCS_TASK *objDVCS = new ePIC_DVCS_TASK(camp,energy,sett);
   
-  TString sInFileList = "./filelists/inputFileList_ePIC_"+camp+"_"+energy+"_"+sett+".list";
+  TString sInFileList;
+  // If testing, load test file list
+  if(sett != "hiAcc" && sett != "hiDiv") sInFileList="./filelists/inputFileList_test.list";
+  // Else, use file list as directed
+  else sInFileList = "./filelists/inputFileList_ePIC_"+camp+"_"+energy+"_"+sett+".list";
   objDVCS->setInFileList(sInFileList);
   TString sOutFileName;
   if(comment=="X") sOutFileName = "$EIC_WORK_DIR/DVCS_Analysis/RootFiles/ePIC_DVCS_"+camp+"_"+energy+"_"+sett+".root";
