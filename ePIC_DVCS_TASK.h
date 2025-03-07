@@ -7,15 +7,15 @@
 
 // Include detector resolution scripts (from A. Jentsch)
 #include "detectorResolution.h"
+// Include ePIC event kinematic utilities
+#include "ePIC_IncKinUtils.h"
+#include "ePIC_ExcKinUtils.h"
 
 // ROOT::Math aliases
 using ROOT::Math::VectorUtil::boost;
 using ROOT::Math::VectorUtil::Angle;
 using ROOT::Math::RotationX;
 using ROOT::Math::RotationY;
-using P3MVector=ROOT::Math::LorentzVector<ROOT::Math::PxPyPzMVector>;
-using P3EVector=ROOT::Math::LorentzVector<ROOT::Math::PxPyPzEVector>;
-using MomVector=ROOT::Math::DisplacementVector3D<ROOT::Math::Cartesian3D<Double_t>,ROOT::Math::DefaultCoordinateSystemTag>;
 
 class ePIC_DVCS_TASK{
  private:
@@ -31,6 +31,7 @@ class ePIC_DVCS_TASK{
   // Boolean behaviour selectors
   Bool_t kUsePID{kFALSE}; // Default to using assumptions about DVCS event
   Bool_t kUseExplicitMatch{kFALSE}; // Default to not using explicit matching between associated and reco tracks
+  Bool_t kUseEventBeams{kFALSE}; // Default to using beams averaged over file
 
   // Global variables
   Float_t fMass_proton{0.938272};
@@ -77,6 +78,7 @@ class ePIC_DVCS_TASK{
 
   void setUsePID(Bool_t usePID){ kUsePID = usePID; }
   void setUseExplicitMatch(Bool_t useExplicitMatch){ kUseExplicitMatch = useExplicitMatch; }
+  void setUseEventBeams (Bool_t useEventBeams){ kUseEventBeams = useEventBeams; }
 
   // Set momenta cuts automatically
   void setMomCuts(Float_t factor = 1.);
@@ -87,37 +89,27 @@ class ePIC_DVCS_TASK{
   void setMax_M2miss(Float_t cut){ fMax_M2miss = cut; }
 
   // Apply cuts
-  Bool_t applyCuts_Electron(std::vector<P3MVector> scate);
-  Bool_t applyCuts_Photon(std::vector<P3MVector> scatg);
-  Bool_t applyCuts_Proton(std::vector<P3MVector> scatp, TString sProtonDet="all");
+  Bool_t applyCuts_Electron(std::vector<P3EVector> scate);
+  Bool_t applyCuts_Photon(std::vector<P3EVector> scatg);
+  Bool_t applyCuts_Proton(std::vector<P3EVector> scatp, TString sProtonDet="all");
   Bool_t applyCuts_DVCS(TString sProtonDet="all");
-  Bool_t applyCuts_All(P3MVector beame, P3MVector beamp, std::vector<P3MVector> scate, std::vector<P3MVector> scatp, std::vector<P3MVector> scatg, TString sProtonDet="all");
+  Bool_t applyCuts_All(P3EVector beame, P3EVector beamp, std::vector<P3EVector> scate, std::vector<P3EVector> scatp, std::vector<P3EVector> scatg, TString sProtonDet="all");
 
   // Undo afterburner boost
-  void undoAfterburnAndCalc(P3MVector& p, P3MVector& k); // Undo procedure AND calculate boost vectors
-  void undoAfterburn(P3MVector& p); // Undo procedure ONLY
-
+  void undoAfterburnAndCalc(P3EVector& p, P3EVector& k); // Undo procedure AND calculate boost vectors
+  void undoAfterburn(P3EVector& p); // Undo procedure ONLY
+  
   // Calculation of kinematic quantities
   // Event kinematics: t, Q2, xB, Phi
-  Double_t calcT(P3MVector p, P3MVector pprime);
-  Double_t calcTNoP(P3MVector k, P3MVector kprime, P3MVector g);
-  Double_t calcQ2(P3MVector k, P3MVector kprime);
-  Double_t calcBjorkenX(P3MVector k, P3MVector kprime, P3MVector p);
-  Double_t calcBjorkenY(P3MVector k, P3MVector kprime, P3MVector p);
-  Double_t calcTrentoPhi(P3MVector k, P3MVector kprime, P3MVector pprime);
-  Double_t calcPhiH(P3MVector k, P3MVector kprime, P3MVector p, P3MVector pprime);
-  Double_t calcPhiQPQG(P3MVector k, P3MVector p, P3MVector kprime, P3MVector gprime);
-  Double_t calcConeAngle(P3MVector k, P3MVector p, P3MVector kprime, P3MVector pprime, P3MVector gprime);
-  // Missing mass/energy/momentum: ab->cdf
-  Double_t calcPMiss_3Body(P3MVector a, P3MVector b, P3MVector c, P3MVector d, P3MVector f);
-  Double_t calcPtMiss_3Body(P3MVector a, P3MVector b, P3MVector c, P3MVector d, P3MVector f);
-  Double_t calcEMiss_3Body(P3MVector a, P3MVector b, P3MVector c, P3MVector d, P3MVector f);
-  Double_t calcM2Miss_3Body(P3MVector a, P3MVector b, P3MVector c, P3MVector d, P3MVector f);
-  // ab->cd
-  Double_t calcPMiss_2Body(P3MVector a, P3MVector b, P3MVector c, P3MVector d);
-  Double_t calcEMiss_2Body(P3MVector a, P3MVector b, P3MVector c, P3MVector d);
-  Double_t calcM2Miss_2Body(P3MVector a, P3MVector b, P3MVector c, P3MVector d);
-  
+  Double_t calcTrentoPhi_qp(P3EVector k, P3EVector kprime, P3EVector pprime);
+  Double_t calcTrentoPhi_pg(P3EVector k, P3EVector kprime, P3EVector pprime, P3EVector gprime);
+  Double_t calcTrentoPhi_qg(P3EVector k, P3EVector kprime, P3EVector gprime);
+  Double_t calcTrentoPhi_4Vec(P3EVector k, P3EVector p, P3EVector kprime, P3EVector pprime);
+  Double_t calcgT_ij(P3EVector q, P3EVector p, Int_t i, Int_t j);
+  Double_t calcepsT_ij(P3EVector q, P3EVector p, Int_t i, Int_t j);
+  Int_t LeviCivita(int i, int j, int k, int l);
+  Double_t calcPhiQPQG(P3EVector k, P3EVector p, P3EVector kprime, P3EVector gprime);
+  Double_t calcConeAngle(P3EVector k, P3EVector p, P3EVector kprime, P3EVector pprime, P3EVector gprime);
 
   void doAnalysis();
 };
