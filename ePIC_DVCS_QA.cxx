@@ -308,21 +308,21 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_Q2_Acc   = new TH1D("q2_acc"  ,";Q^{2}(MC|Reco.) [(GeV/c^{2})^{2}]", 500, 0., 10.);
   TH1D* h_Q2_Reco  = new TH1D("q2_reco" ,";Q^{2}(Reco.) [(GeV/c^{2})^{2}]"   , 500, 0., 10.);
   TH2D* h_Q2_Resp  = new TH2D("q2_resp" ,";Q^{2}(MC|Reco.) [(GeV/c^{2})^{2}];Q^{2}(Reco.) [(GeV/c^{2})^{2}]", 500, 0., 10., 500, 0., 10.);
-  TH1D* h_Q2_Pur   = new TH1D("q2_pur"  ,";#frac{MC|Reco.}{Reco.};Q^{2}(Reco.) [(GeV/c^{2})^{2}]", 500, 0., 10.);
+  TH1D* h_Q2_Pur   = new TH1D("q2_pur"  ,";Q^{2}(Reco.) [(GeV/c^{2})^{2}];#frac{MC|Reco.}{Reco.}", 500, 0., 10.);
   TH2D* h_dQ2vQ2   = new TH2D("dq2vq2"  ,";Q^{2}(MC|Reco.) [(GeV/c^{2})^{2}];#Delta Q^{2} [(GeV/c^{2})^{2}]", 500, 0., 10., 200, -10., 10.);
   // x
   TH1D* h_xB_Truth = new TH1D("xb_truth",";x_{B}(MC)"      , 1e4, 0., 1.);
   TH1D* h_xB_Acc   = new TH1D("xb_acc"  ,";x_{B}(MC|Reco.)", 1e4, 0., 1.);
   TH1D* h_xB_Reco  = new TH1D("xb_reco" ,";x_{B}(Reco.)"   , 1e4, 0., 1.);
   TH2D* h_xB_Resp  = new TH2D("xb_resp" ,";x_{B}(MC|Reco.);x_{B}(Reco.)", 1e4, 0., 1., 1e4, 0., 1.);
-  TH1D* h_xB_Pur   = new TH1D("xb_pur"  ,";#frac{MC|Reco.}{Reco.};x_{B}(Reco.)", 1e4, 0., 1.);
+  TH1D* h_xB_Pur   = new TH1D("xb_pur"  ,";x_{B}(Reco.);#frac{MC|Reco.}{Reco.}", 1e4, 0., 1.);
   TH2D* h_dxBvxB   = new TH2D("dxbvxb"  ,";x_{B}(MC|Reco.);#Delta x_{B}",1e4, 0., 1., 200, -1., 1.);
   // y
   TH1D* h_y_Truth = new TH1D("y_truth",";y(MC)"      , 100, 0., 1.);
   TH1D* h_y_Acc   = new TH1D("y_acc"  ,";y(MC|Reco.)", 100, 0., 1.);
   TH1D* h_y_Reco  = new TH1D("y_reco" ,";y(Reco.)"   , 100, 0., 1.);
   TH2D* h_y_Resp  = new TH2D("y_resp" ,";y(MC|Reco.);y(Reco.)", 100, 0., 1., 100, 0., 1.); 
-  TH1D* h_y_Pur   = new TH1D("y_pur"  ,";#frac{MC|Reco.}{Reco.};y(Reco.)", 100, 0., 1.);
+  TH1D* h_y_Pur   = new TH1D("y_pur"  ,";y(Reco.);#frac{MC|Reco.}{Reco.}", 100, 0., 1.);
   TH2D* h_dyvy    = new TH2D("dyvy"   ,";y(MC|Reco.);#Delta y",100, 0., 1., 200, -1., 1.);
   // Exclusive kinematic quantities
   TH1D* h_t_Truth  = new TH1D("t_truth" ,";|t|(MC) [(GeV/c^{2})^{2}]"           , 100, 0., 2.);
@@ -332,8 +332,8 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_t_RPReco = new TH1D("t_rpreco",";|t|(Reco. - RP) [(GeV/c^{2})^{2}]"   , 100, 0., 2.);
   TH2D* h_t_B0Resp = new TH2D("t_b0resp",";|t|(MC|Reco. - B0) [(GeV/c^{2})^{2}];|t|(Reco. - B0) [(GeV/c^{2})^{2}]", 100, 0., 2., 100, 0., 2.);
   TH2D* h_t_RPResp = new TH2D("t_rpresp",";|t|(MC|Reco. - RP) [(GeV/c^{2})^{2}];|t|(Reco. - RP) [(GeV/c^{2})^{2}]", 100, 0., 2., 100, 0., 2.);
-  TH1D* h_t_B0Pur  = new TH1D("t_b0pur" ,";#frac{MC|Reco.}{Reco.};|t|(Reco. - B0) [(GeV/c^{2})^{2}]", 100, 0., 2.);
-  TH1D* h_t_RPPur  = new TH1D("t_rppur" ,";#frac{MC|Reco.}{Reco.};|t|(Reco. - RP) [(GeV/c^{2})^{2}]", 100, 0., 2.);
+  TH1D* h_t_B0Pur  = new TH1D("t_b0pur" ,";|t|(Reco. - B0) [(GeV/c^{2})^{2}];#frac{MC|Reco.}{Reco.}", 100, 0., 2.);
+  TH1D* h_t_RPPur  = new TH1D("t_rppur" ,";|t|(Reco. - RP) [(GeV/c^{2})^{2}];#frac{MC|Reco.}{Reco.}", 100, 0., 2.);
   TH2D* h_B0dtvt   = new TH2D("b0dtvt"  ,";|t|(MC|Reco. - B0) [(GeV/c^{2})^{2}];#Delta t [(GeV/c^{2})^{2}]", 100, 0., 2., 400, -2., 2.);
   TH2D* h_RPdtvt   = new TH2D("rpdtvt"  ,";|t|(MC|Reco. - RP) [(GeV/c^{2})^{2}];#Delta t [(GeV/c^{2})^{2}]", 100, 0., 2., 400, -2., 2.);
   //Single particle kinematics - protons
@@ -344,8 +344,8 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_theta_p_RPReco = new TH1D("theta_p_rpreco",";#theta_{p'}(Reco. - RP) [mrad]"   , 100, 0., 25.);
   TH2D* h_theta_p_B0Resp = new TH2D("theta_p_b0resp",";#theta_{p'}(MC|Reco. - B0) [mrad];#theta_{p'}(Reco. - B0) [mrad]", 100, 0., 25., 100, 0., 25.);
   TH2D* h_theta_p_RPResp = new TH2D("theta_p_rpresp",";#theta_{p'}(MC|Reco. - RP) [mrad];#theta_{p'}(Reco. - RP) [mrad]", 100, 0., 25., 100, 0., 25.);
-  TH1D* h_theta_p_B0Pur  = new TH1D("theta_p_b0pur" ,";#frac{MC|Reco.}{Reco.};#theta_{p'}(Reco. - B0) [mrad]", 100, 0., 25.);
-  TH1D* h_theta_p_RPPur  = new TH1D("theta_p_rppur" ,";#frac{MC|Reco.}{Reco.};#theta_{p'}(Reco. - RP) [mrad]", 100, 0., 25.);
+  TH1D* h_theta_p_B0Pur  = new TH1D("theta_p_b0pur" ,";#theta_{p'}(Reco. - B0) [mrad];#frac{MC|Reco.}{Reco.}", 100, 0., 25.);
+  TH1D* h_theta_p_RPPur  = new TH1D("theta_p_rppur" ,";#theta_{p'}(Reco. - RP) [mrad];#frac{MC|Reco.}{Reco.}", 100, 0., 25.);
   TH1D* h_E_p_Truth  = new TH1D("E_p_truth" ,";E_{p'}(MC) [GeV]"           , (Int_t)fPMax_p, 0., fPMax_p);
   TH1D* h_E_p_B0Acc  = new TH1D("E_p_b0acc" ,";E_{p'}(MC|Reco. - B0) [GeV]", (Int_t)fPMax_p, 0., fPMax_p);
   TH1D* h_E_p_RPAcc  = new TH1D("E_p_rpacc" ,";E_{p'}(MC|Reco. - RP) [GeV]", (Int_t)fPMax_p, 0., fPMax_p);
@@ -353,53 +353,53 @@ void ePIC_DVCS_TASK::doAnalysis(){
   TH1D* h_E_p_RPReco = new TH1D("E_p_rpreco",";E_{p'}(Reco. - RP) [GeV]"   , (Int_t)fPMax_p, 0., fPMax_p);
   TH2D* h_E_p_B0Resp = new TH2D("E_p_b0resp",";E_{p'}(MC|Reco. - B0) [GeV];E_{p'}(Reco. - B0) [GeV]", (Int_t)fPMax_p, 0., fPMax_p, (Int_t)fPMax_p, 0., fPMax_p);
   TH2D* h_E_p_RPResp = new TH2D("E_p_rpresp",";E_{p'}(MC|Reco. - RP) [GeV];E_{p'}(Reco. - RP) [GeV]", (Int_t)fPMax_p, 0., fPMax_p, (Int_t)fPMax_p, 0., fPMax_p);
-  TH1D* h_E_p_B0Pur  = new TH1D("E_p_b0pur" ,"#frac{MC|Reco.}{Reco.};E_{p'}(Reco. - B0) [GeV]", (Int_t)fPMax_p, 0., fPMax_p);
-  TH1D* h_E_p_RPPur  = new TH1D("E_p_rppur" ,"#frac{MC|Reco.}{Reco.};E_{p'}(Reco. - RP) [GeV]", (Int_t)fPMax_p, 0., fPMax_p);
+  TH1D* h_E_p_B0Pur  = new TH1D("E_p_b0pur" ,";E_{p'}(Reco. - B0) [GeV];#frac{MC|Reco.}{Reco.}", (Int_t)fPMax_p, 0., fPMax_p);
+  TH1D* h_E_p_RPPur  = new TH1D("E_p_rppur" ,";E_{p'}(Reco. - RP) [GeV];#frac{MC|Reco.}{Reco.}", (Int_t)fPMax_p, 0., fPMax_p);
   //Single particle kinematics - electrons
   TH1D* h_theta_e_Truth = new TH1D("theta_e_truth",";#theta_{e'}(MC) [rad]"      , 100, 0., 3.2);
   TH1D* h_theta_e_Acc   = new TH1D("theta_e_acc"  ,";#theta_{e'}(MC|Reco.) [rad]", 100, 0., 3.2);
   TH1D* h_theta_e_Reco  = new TH1D("theta_e_reco" ,";#theta_{e'}(Reco.) [rad]"   , 100, 0., 3.2);
   TH2D* h_theta_e_Resp  = new TH2D("theta_e_resp" ,";#theta_{e'}(MC|Reco.) [rad];#theta_{e'}(Reco.) [rad]", 100, 0., 3.2, 100, 0., 3.2);
-  TH1D* h_theta_e_Pur   = new TH1D("theta_e_pur"  ,";#frac{MC|Reco.}{Reco.};#theta_{e'}(Reco.) [rad]", 100, 0., 3.2);
+  TH1D* h_theta_e_Pur   = new TH1D("theta_e_pur"  ,";#theta_{e'}(Reco.) [rad];#frac{MC|Reco.}{Reco.}", 100, 0., 3.2);
   TH1D* h_E_e_Truth = new TH1D("E_e_truth",";E_{e'}(MC) [GeV]"      , (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
   TH1D* h_E_e_Acc   = new TH1D("E_e_acc"  ,";E_{e'}(MC|Reco.) [GeV]", (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
   TH1D* h_E_e_Reco  = new TH1D("E_e_reco" ,";E_{e'}(Reco.) [GeV]"   , (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
   TH2D* h_E_e_Resp  = new TH2D("E_e_resp" ,";E_{e'}(MC|Reco.) [GeV];E_{e'}(Reco.) [GeV]", (Int_t)2*fPMax_e, 0.0, 2*fPMax_e, (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
-  TH1D* h_E_e_Pur   = new TH1D("E_e_pur"  ,";#frac{MC|Reco.}{Reco.};E_{e'}(Reco.) [GeV]", (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
+  TH1D* h_E_e_Pur   = new TH1D("E_e_pur"  ,";E_{e'}(Reco.) [GeV];#frac{MC|Reco.}{Reco.}", (Int_t)2*fPMax_e, 0.0, 2*fPMax_e);
   //Single particle kinematics - photons
   TH1D* h_theta_g_Truth = new TH1D("theta_g_truth",";#theta_{#gamma}(MC) [rad]"     , 100, 0., 3.2);
   TH1D* h_theta_g_Acc   = new TH1D("theta_g_acc"  ,";#theta_{#gamma}(MC|Reco) [rad]", 100, 0., 3.2);
   TH1D* h_theta_g_Reco  = new TH1D("theta_g_reco" ,";#theta_{#gamma}(Reco) [rad]"   , 100, 0., 3.2);
   TH2D* h_theta_g_Resp  = new TH2D("theta_g_resp" ,";#theta_{#gamma}(MC|Reco.) [rad];#theta_{#gamma}(Reco.) [rad]", 100, 0., 3.2, 100, 0., 3.2);
-  TH1D* h_theta_g_Pur   = new TH1D("theta_g_pur"  ,";#frac{MC|Reco.}{Reco.};#theta_{#gamma}(Reco.) [rad]", 100, 0., 3.2);
+  TH1D* h_theta_g_Pur   = new TH1D("theta_g_pur"  ,";#theta_{#gamma}(Reco.) [rad];#frac{MC|Reco.}{Reco.}", 100, 0., 3.2);
   TH1D* h_E_g_Truth = new TH1D("E_g_truth",";E_{#gamma}(MC) [GeV]", 50, 0., 50.);
   TH1D* h_E_g_Acc   = new TH1D("E_g_acc"  ,";E_{#gamma}(MC|Reco.) [GeV]", 50, 0., 50.);
   TH1D* h_E_g_Reco  = new TH1D("E_g_reco" ,";E_{#gamma}(Reco.) [GeV]", 50, 0., 50.);
   TH2D* h_E_g_Resp  = new TH2D("E_g_resp" ,";E_{#gamma}(MC|Reco.) [GeV];E_{#gamma}(Reco.) [GeV]", 50, 0., 50., 50, 0., 50.);
-  TH1D* h_E_g_Pur   = new TH1D("E_g_pur"  ,";#frac{MC|Reco.}{Reco.};E_{#gamma}(Reco.) [GeV]", 50, 0., 50.);
+  TH1D* h_E_g_Pur   = new TH1D("E_g_pur"  ,";E_{#gamma}(Reco.) [GeV];#frac{MC|Reco.}{Reco.}", 50, 0., 50.);
   // HFS quantities
   TH1D* h_HFSSigma_Truth = new TH1D("hfssigma_truth",";#Sigma_{h}(MC) [GeV]"      , 100, 0., 10.);
   TH1D* h_HFSSigma_Acc   = new TH1D("hfssigma_acc"  ,";#Sigma_{h}(MC|Reco.) [GeV]", 100, 0., 10.);
   TH1D* h_HFSSigma_Reco  = new TH1D("hfssigma_reco" ,";#Sigma_{h}(Reco.) [GeV]"   , 100, 0., 10.);
   TH2D* h_HFSSigma_Resp  = new TH2D("hfssigma_resp" ,";#Sigma_{h}(MC|Reco.) [GeV];#Sigma_{h}(Reco.) [GeV]", 100, 0., 10., 100, 0., 10.);
-  TH1D* h_HFSSigma_Pur   = new TH1D("hfssigma_pur"  ,"#frac{MC|Reco.}{Reco.};#Sigma_{h}(Reco.) [GeV]", 100, 0., 10.);
+  TH1D* h_HFSSigma_Pur   = new TH1D("hfssigma_pur"  ,";#Sigma_{h}(Reco.) [GeV];#frac{MC|Reco.}{Reco.}", 100, 0., 10.);
   TH1D* h_HFSpT2_Truth = new TH1D("hfspt2_truth",";p_{T,h}^{2}(MC) [(GeV/c^{2})^{2}]"      , 100, 0., 10.);
   TH1D* h_HFSpT2_Acc   = new TH1D("hfspt2_acc"  ,";p_{T,h}^{2}(MC|Reco.) [(GeV/c^{2})^{2}]", 100, 0., 10.);
   TH1D* h_HFSpT2_Reco  = new TH1D("hfspt2_reco" ,";p_{T,h}^{2}(Reco.) [(GeV/c^{2})^{2}]"   , 100, 0., 10.);
   TH2D* h_HFSpT2_Resp  = new TH2D("hfspt2_resp" ,";p_{T,h}^{2}(MC|Reco.) [(GeV/c^{2})^{2}];p_{T,h}^{2}(Reco.) [(GeV/c^{2})^{2}]", 100, 0., 10., 100, 0., 10.);
-  TH1D* h_HFSpT2_Pur   = new TH1D("hfspt2_pur"  ,";#frac{MC|Reco}{Reco.};p_{T,h}^{2}(Reco.) [(GeV/c^{2})^{2}]", 100, 0., 10.);
+  TH1D* h_HFSpT2_Pur   = new TH1D("hfspt2_pur"  ,";p_{T,h}^{2}(Reco.) [(GeV/c^{2})^{2}];#frac{MC|Reco}{Reco.}", 100, 0., 10.);
   TH1D* h_FullSigma_Truth = new TH1D("fullsigma_truth",";#Sigma(MC) [GeV]"      , 100, 0., 10.);
   TH1D* h_FullSigma_Acc   = new TH1D("fullsigma_acc"  ,";#Sigma(MC|Reco.) [GeV]", 100, 0., 10.);
   TH1D* h_FullSigma_Reco  = new TH1D("fullsigma_reco" ,";#Sigma(Reco.) [GeV]"   , 100, 0., 10.);
   TH2D* h_FullSigma_Resp  = new TH2D("fullsigma_resp" ,";#Sigma(MC|Reco.) [GeV];#Sigma(Reco.) [GeV]", 100, 0., 10., 100, 0., 10.);
-  TH1D* h_FullSigma_Pur   = new TH1D("fullsigma_pur"  ,"#frac{MC|Reco.}{Reco.};#Sigma(Reco.) [GeV]", 100, 0., 10.);
+  TH1D* h_FullSigma_Pur   = new TH1D("fullsigma_pur"  ,";#Sigma(Reco.) [GeV];#frac{MC|Reco}{Reco.}", 100, 0., 10.);
   // E/p for electron/photon
-  TH1D* h_EOverp_e_Truth = new TH1D("eoverp_e_truth",";E/p(MC)", 100, 0, 1);
-  TH1D* h_EOverp_e_Reco  = new TH1D("eoverp_e_reco" ,";E/p(Reco.)", 100, 0, 1);
-  TH2D* h_EOverp_e_Resp  = new TH2D("eoverp_e_resp" ,";E/p(MC|Reco.);E/p(Reco.)", 100, -10, 10, 100, -10, 10);
-  TH1D* h_EOverp_g_Truth = new TH1D("eoverp_g_truth",";E/p(MC)", 100, 0, 1);
-  TH1D* h_EOverp_g_Reco  = new TH1D("eoverp_g_reco" ,";E/p(Reco.)", 100, 0, 1);
-  TH2D* h_EOverp_g_Resp  = new TH2D("eoverp_g_resp" ,";E/p(MC|Reco.);E/p(Reco.)", 100, -10, 10, 100, -10, 10);
+  TH1D* h_EOverp_e_Truth = new TH1D("eoverp_e_truth",";E/p(MC)", 200, 0., 2.);
+  TH1D* h_EOverp_e_Reco  = new TH1D("eoverp_e_reco" ,";E/p(Reco.)", 200, 0., 2.);
+  TH2D* h_EOverp_e_Resp  = new TH2D("eoverp_e_resp" ,";E/p(MC|Reco.);E/p(Reco.)", 200, 0., 2., 200, 0., 2.);
+  TH1D* h_EOverp_g_Truth = new TH1D("eoverp_g_truth",";E/p(MC)", 200, 0., 2.);
+  TH1D* h_EOverp_g_Reco  = new TH1D("eoverp_g_reco" ,";E/p(Reco.)", 200, 0., 2.);
+  TH2D* h_EOverp_g_Resp  = new TH2D("eoverp_g_resp" ,";E/p(MC|Reco.);E/p(Reco.)", 200, 0., 2., 200, 0., 2.);
   
   //---------------------------------------------------------
   // Loop over files in list
@@ -918,7 +918,25 @@ void ePIC_DVCS_TASK::doAnalysis(){
 
     inputRootFile->Close();
   } // END OF FILE LOOP
-
+  
+  // For purity/bin migration histograms, divide by reco.
+  h_Q2_Pur->Divide(h_Q2_Reco);
+  h_xB_Pur->Divide(h_xB_Reco);
+  h_y_Pur->Divide(h_y_Reco);
+  h_t_B0Pur->Divide(h_t_B0Reco);
+  h_t_RPPur->Divide(h_t_RPReco);
+  h_theta_p_B0Pur->Divide(h_theta_p_B0Reco);
+  h_theta_p_RPPur->Divide(h_theta_p_RPReco);
+  h_E_p_B0Pur->Divide(h_E_p_B0Reco);
+  h_E_p_RPPur->Divide(h_E_p_RPReco);
+  h_theta_e_Pur->Divide(h_theta_e_Reco);
+  h_E_e_Pur->Divide(h_E_e_Reco);
+  h_theta_g_Pur->Divide(h_theta_g_Reco);
+  h_E_g_Pur->Divide(h_E_g_Reco);
+  h_HFSSigma_Pur->Divide(h_HFSSigma_Reco);
+  h_HFSpT2_Pur->Divide(h_HFSpT2_Reco);
+  h_FullSigma_Pur->Divide(h_FullSigma_Reco);
+  
   //------------------------------------------------------------
   // Write to output file
   //------------------------------------------------------------
