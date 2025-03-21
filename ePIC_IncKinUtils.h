@@ -33,327 +33,327 @@ using MomVector=ROOT::Math::DisplacementVector3D<ROOT::Math::Cartesian3D<Double_
 
 // Calculate DIS kinematics - electron method
 // e + p -> e' + X
-Double_t calcQ2_Elec(TLorentzVector e,TLorentzVector  ep);
-Double_t calcQ2_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep);
-Double_t calcQ2_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep);
-Double_t calcX_Elec(TLorentzVector e, TLorentzVector  p,TLorentzVector  ep);
-Double_t calcX_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep);
-Double_t calcX_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep);
-Double_t calcY_Elec(TLorentzVector e, TLorentzVector p, TLorentzVector ep);
-Double_t calcY_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep);
-Double_t calcY_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep);
-void calcKin_Elec(TLorentzVector e, TLorentzVector p, TLorentzVector ep, Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
+Double_t calcQ2_Elec(const TLorentzVector& e,const TLorentzVector& ep);
+Double_t calcQ2_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep);
+Double_t calcQ2_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep);
+Double_t calcX_Elec(const TLorentzVector& e, const TLorentzVector&  p,const TLorentzVector&  ep);
+Double_t calcX_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep);
+Double_t calcX_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep);
+Double_t calcY_Elec(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep);
+Double_t calcY_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep);
+Double_t calcY_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep);
+void calcKin_Elec(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, Float_t &Q2, Float_t &x, Float_t &y);
+void calcKin_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
 		  Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
+void calcKin_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
 		  Float_t &Q2, Float_t &x, Float_t &y);
 
 // Calculate DIS kinematics - JB method
 // SIDIS/Exclusive case:  e + p -> e' + p' + X
 // Separating the scattered proton from the rest of the hadronic final state
-Double_t calcQ2_JB(TLorentzVector e, TLorentzVector pp, TLorentzVector X);
-Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X);
-Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X);
-Double_t calcX_JB(TLorentzVector e, TLorentzVector p, TLorentzVector pp, TLorentzVector X);
-Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X);
-Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X);
-Double_t calcY_JB(TLorentzVector e, TLorentzVector pp, TLorentzVector X);
-Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X);
-Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X);
-void calcKin_JB(TLorentzVector e, TLorentzVector p, TLorentzVector pp, TLorentzVector X, Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X, 
+Double_t calcQ2_JB(const TLorentzVector& e, const TLorentzVector& pp, const TLorentzVector& X);
+Double_t calcQ2_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X);
+Double_t calcQ2_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X);
+Double_t calcX_JB(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& pp, const TLorentzVector& X);
+Double_t calcX_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X);
+Double_t calcX_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X);
+Double_t calcY_JB(const TLorentzVector& e, const TLorentzVector& pp, const TLorentzVector& X);
+Double_t calcY_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X);
+Double_t calcY_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X);
+void calcKin_JB(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& pp, const TLorentzVector& X, Float_t &Q2, Float_t &x, Float_t &y);
+void calcKin_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X, 
 		Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X, 
+void calcKin_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X, 
 		Float_t &Q2, Float_t &x, Float_t &y);
 // DIS case: e + p -> e' + HFS
 // Combining the whole HFS into 1 vector
-Double_t calcQ2_JB(TLorentzVector e, TLorentzVector HFS);
-Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS);
-Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS);
-Double_t calcX_JB(TLorentzVector e, TLorentzVector p, TLorentzVector HFS);
-Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS);
-Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS);
-Double_t calcY_JB(TLorentzVector e, TLorentzVector HFS);
-Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,  
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS);
-Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,  
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS);
-void calcKin_JB(TLorentzVector e, TLorentzVector p, TLorentzVector HFS, Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS, 
+Double_t calcQ2_JB(const TLorentzVector& e, const TLorentzVector& HFS);
+Double_t calcQ2_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS);
+Double_t calcQ2_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS);
+Double_t calcX_JB(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& HFS);
+Double_t calcX_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS);
+Double_t calcX_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS);
+Double_t calcY_JB(const TLorentzVector& e, const TLorentzVector& HFS);
+Double_t calcY_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e,  
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS);
+Double_t calcY_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e,  
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS);
+void calcKin_JB(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& HFS, Float_t &Q2, Float_t &x, Float_t &y);
+void calcKin_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS, 
 		Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS, 
+void calcKin_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS, 
 		Float_t &Q2, Float_t &x, Float_t &y);
 
 // Calculate DIS kinematics - DA method
 // SIDIS/Exclusive case:  e + p -> e' + p' + X
 // Separating the scattered proton from the rest of the hadronic final state
-Double_t calcQ2_DA(TLorentzVector e, TLorentzVector ep, TLorentzVector pp, TLorentzVector X);
-Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X);
-Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X);
-Double_t calcX_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X);
-Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X);
-Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X);
-Double_t calcY_DA(TLorentzVector ep, TLorentzVector pp, TLorentzVector X);
-Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X);
-Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X);
-void calcKin_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X, Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X, 
+Double_t calcQ2_DA(const TLorentzVector& e, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X);
+Double_t calcQ2_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X);
+Double_t calcQ2_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X);
+Double_t calcX_DA(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X);
+Double_t calcX_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X);
+Double_t calcX_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X);
+Double_t calcY_DA(const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X);
+Double_t calcY_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X);
+Double_t calcY_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X);
+void calcKin_DA(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X, Float_t &Q2, Float_t &x, Float_t &y);
+void calcKin_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X, 
 		Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X, 
+void calcKin_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X, 
 		Float_t &Q2, Float_t &x, Float_t &y);
 // DIS case:  e + p -> e' + HFS
 // Combining whole HFS into one vector
-Double_t calcQ2_DA(TLorentzVector e, TLorentzVector ep, TLorentzVector HFS);
-Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS);
-Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep,  
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS);
-Double_t calcX_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS);
-Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS);
-Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS);
-Double_t calcY_DA(TLorentzVector ep, TLorentzVector HFS);
-Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS);
-Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS);
-void calcKin_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS, Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS, 
+Double_t calcQ2_DA(const TLorentzVector& e, const TLorentzVector& ep, const TLorentzVector& HFS);
+Double_t calcQ2_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS);
+Double_t calcQ2_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep,  
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS);
+Double_t calcX_DA(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS);
+Double_t calcX_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS);
+Double_t calcX_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS);
+Double_t calcY_DA(const TLorentzVector& ep, const TLorentzVector& HFS);
+Double_t calcY_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS);
+Double_t calcY_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS);
+void calcKin_DA(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS, Float_t &Q2, Float_t &x, Float_t &y);
+void calcKin_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS, 
 		Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS, 
+void calcKin_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS, 
 		Float_t &Q2, Float_t &x, Float_t &y);
 
 // Calculate DIS kinematics - Sigma method
 // SIDIS/Exclusive case:  e + p -> e' + p' + X
 // Separating the scattered proton from the rest of the hadronic final state
-Double_t calcQ2_Sigma(TLorentzVector ep, TLorentzVector pp, TLorentzVector X);
-Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X);
-Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X);
-Double_t calcX_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X);
-Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X);
-Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X);
-Double_t calcY_Sigma(TLorentzVector ep, TLorentzVector pp, TLorentzVector X);
-Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X);
-Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X);
-void calcKin_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X, Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X, 
+Double_t calcQ2_Sigma(const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X);
+Double_t calcQ2_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X);
+Double_t calcQ2_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X);
+Double_t calcX_Sigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X);
+Double_t calcX_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X);
+Double_t calcX_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X);
+Double_t calcY_Sigma(const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X);
+Double_t calcY_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X);
+Double_t calcY_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X);
+void calcKin_Sigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X, Float_t &Q2, Float_t &x, Float_t &y);
+void calcKin_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X, 
 		   Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X, 
+void calcKin_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X, 
 		   Float_t &Q2, Float_t &x, Float_t &y);
 // DIS case:  e + p -> e' + HFS
 // Combining whole HFS into one vector
-Double_t calcQ2_Sigma(TLorentzVector ep, TLorentzVector HFS);
-Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS);
-Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS);
-Double_t calcX_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS);
-Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS);
-Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS);
-Double_t calcY_Sigma(TLorentzVector ep, TLorentzVector HFS);
-Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS);
-Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep,
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS);
-void calcKin_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS, Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS, 
+Double_t calcQ2_Sigma(const TLorentzVector& ep, const TLorentzVector& HFS);
+Double_t calcQ2_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS);
+Double_t calcQ2_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS);
+Double_t calcX_Sigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS);
+Double_t calcX_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS);
+Double_t calcX_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS);
+Double_t calcY_Sigma(const TLorentzVector& ep, const TLorentzVector& HFS);
+Double_t calcY_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS);
+Double_t calcY_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep,
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS);
+void calcKin_Sigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS, Float_t &Q2, Float_t &x, Float_t &y);
+void calcKin_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS, 
 		   Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS, 
+void calcKin_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS, 
 		   Float_t &Q2, Float_t &x, Float_t &y);
 
 // Calculate DIS kinematics - eSigma method
 // SIDIS/Exclusive case:  e + p -> e' + p' + X
 // Separating the scattered proton from the rest of the hadronic final state
-Double_t calcQ2_ESigma(TLorentzVector e, TLorentzVector ep);
-Double_t calcQ2_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		       ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep);
-Double_t calcQ2_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		       ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep);
-Double_t calcX_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X);
-Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X);
-Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X);
-Double_t calcY_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X);
-Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X);
-Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X);
-void calcKin_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X, Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X, 
+Double_t calcQ2_ESigma(const TLorentzVector& e, const TLorentzVector& ep);
+Double_t calcQ2_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		       const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep);
+Double_t calcQ2_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		       const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep);
+Double_t calcX_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X);
+Double_t calcX_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X);
+Double_t calcX_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X);
+Double_t calcY_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X);
+Double_t calcY_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X);
+Double_t calcY_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X);
+void calcKin_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X, Float_t &Q2, Float_t &x, Float_t &y);
+void calcKin_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X, 
 		    Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X, 
+void calcKin_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X, 
 		    Float_t &Q2, Float_t &x, Float_t &y);
 // DIS case:  e + p -> e' + HFS
 // Combining whole HFS into one vector
 // Don't need to redefine Q2 - Only uses beam and scattered electron
-Double_t calcX_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS);
-Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS);
-Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS);
-Double_t calcY_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS);
-Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS);
-Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS);
-void calcKin_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS, Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS, 
+Double_t calcX_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS);
+Double_t calcX_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS);
+Double_t calcX_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS);
+Double_t calcY_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS);
+Double_t calcY_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS);
+Double_t calcY_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS);
+void calcKin_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS, Float_t &Q2, Float_t &x, Float_t &y);
+void calcKin_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS, 
 		    Float_t &Q2, Float_t &x, Float_t &y);
-void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS, 
+void calcKin_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS, 
 		    Float_t &Q2, Float_t &x, Float_t &y);
 
 //-----------------------------------------------------------------------------------------------------------------------------
@@ -362,21 +362,21 @@ void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
 
 // Calculate inclusive kinematics (Q2, x, y) with the electron method
 // Q2
-Double_t calcQ2_Elec(TLorentzVector e, TLorentzVector ep){
+Double_t calcQ2_Elec(const TLorentzVector& e, const TLorentzVector& ep){
   double q2 = (e - ep).M2();
   double Q2 = -q2;
 
   return Q2;
 }
-Double_t calcQ2_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep){
+Double_t calcQ2_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep){
   double q2 = (e - ep).M2();
   double Q2 = -q2;
 
   return Q2;
 }
-Double_t calcQ2_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep){
+Double_t calcQ2_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep){
   double q2 = (e - ep).M2();
   double Q2 = -q2;
   
@@ -384,7 +384,7 @@ Double_t calcQ2_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
 }
 
 // x
-Double_t calcX_Elec(TLorentzVector e, TLorentzVector  p, TLorentzVector  ep){
+Double_t calcX_Elec(const TLorentzVector& e, const TLorentzVector&  p, const TLorentzVector&  ep){
   TLorentzVector q = e-ep;
   double q2 = q.M2();
   double denom = 2*q.Dot(p);
@@ -392,9 +392,9 @@ Double_t calcX_Elec(TLorentzVector e, TLorentzVector  p, TLorentzVector  ep){
   double xB = q2/denom;
   return xB;
 }
-Double_t calcX_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep){
+Double_t calcX_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep){
   P3EVector q = e-ep;
   double q2 = -q.M2();
   double denom = 2*q.Dot(p);
@@ -402,9 +402,9 @@ Double_t calcX_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   double xB = q2/denom;
   return xB;
 }
-Double_t calcX_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep){
+Double_t calcX_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep){
   P3MVector q = e-ep;
   double q2 = -q.M2();
   double denom = 2*q.Dot(p);
@@ -412,7 +412,7 @@ Double_t calcX_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   double x = q2/denom;
   return x;
 }
-Double_t calcY_Elec(TLorentzVector e, TLorentzVector p, TLorentzVector ep){
+Double_t calcY_Elec(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep){
   TLorentzVector q = e - ep;
   Double_t num = p.Dot(q);
   Double_t den = p.Dot(e);
@@ -420,9 +420,9 @@ Double_t calcY_Elec(TLorentzVector e, TLorentzVector p, TLorentzVector ep){
   double y = num/den;
   return y;
 }
-Double_t calcY_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep){
+Double_t calcY_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep){
   P3EVector q = e - ep;
   Double_t num = p.Dot(q);
   Double_t den = p.Dot(e);
@@ -430,9 +430,9 @@ Double_t calcY_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   double y = num/den;
   return y;
 }
-Double_t calcY_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep){
+Double_t calcY_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep){
   P3MVector q = e - ep;
   Double_t num = p.Dot(q);
   Double_t den = p.Dot(e);
@@ -441,7 +441,7 @@ Double_t calcY_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return y;
 }
 // Calculate all 3 kinematic variables (Q2, x, y) simultaneously and pass them to holding variables
-void calcKin_Elec(TLorentzVector e, TLorentzVector p, TLorentzVector ep, Float_t &Q2, Float_t &x, Float_t &y){
+void calcKin_Elec(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
   x = 0;
@@ -462,9 +462,9 @@ void calcKin_Elec(TLorentzVector e, TLorentzVector p, TLorentzVector ep, Float_t
   x = x_e;
   y = y_e;
 }
-void calcKin_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
+void calcKin_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
 		  Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -486,9 +486,9 @@ void calcKin_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   x = x_e;
   y = y_e;
 }
-void calcKin_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
+void calcKin_Elec(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
 		  Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -514,7 +514,7 @@ void calcKin_Elec(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
 // Calculate inclusive kinematics (Q2, x, y) with the JB method
 // SIDIS case ep -> e'p'X
 // Q2
-Double_t calcQ2_JB(TLorentzVector e, TLorentzVector pp, TLorentzVector X){
+Double_t calcQ2_JB(const TLorentzVector& e, const TLorentzVector& pp, const TLorentzVector& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -525,9 +525,9 @@ Double_t calcQ2_JB(TLorentzVector e, TLorentzVector pp, TLorentzVector X){
 
   return Q2_jb;
 }
-Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X){
+Double_t calcQ2_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -538,9 +538,9 @@ Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
 
   return Q2_jb;
 }
-Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X){
+Double_t calcQ2_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -552,7 +552,7 @@ Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return Q2_jb;
 }
 // x
-Double_t calcX_JB(TLorentzVector e, TLorentzVector p, TLorentzVector pp, TLorentzVector X){
+Double_t calcX_JB(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& pp, const TLorentzVector& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -564,10 +564,10 @@ Double_t calcX_JB(TLorentzVector e, TLorentzVector p, TLorentzVector pp, TLorent
   
   return x_jb;
 }
-Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X){
+Double_t calcX_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -579,10 +579,10 @@ Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   
   return x_jb;
 }
-Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X){
+Double_t calcX_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -595,7 +595,7 @@ Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return x_jb;
 }
 // y
-Double_t calcY_JB(TLorentzVector e, TLorentzVector pp, TLorentzVector X){
+Double_t calcY_JB(const TLorentzVector& e, const TLorentzVector& pp, const TLorentzVector& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -605,9 +605,9 @@ Double_t calcY_JB(TLorentzVector e, TLorentzVector pp, TLorentzVector X){
 
   return y_jb;
 }
-Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X){
+Double_t calcY_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -617,9 +617,9 @@ Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
 
   return y_jb;
 }
-Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X){
+Double_t calcY_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -630,7 +630,7 @@ Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return y_jb;
 }
 // Calculate all 3 kinematic variables (Q2, x, y) simultaneously and pass them to holding variables 
-void calcKin_JB(TLorentzVector e, TLorentzVector p, TLorentzVector pp, TLorentzVector X, Float_t &Q2, Float_t &x, Float_t &y){
+void calcKin_JB(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& pp, const TLorentzVector& X, Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
   x = 0;
@@ -650,10 +650,10 @@ void calcKin_JB(TLorentzVector e, TLorentzVector p, TLorentzVector pp, TLorentzV
   x = x_jb;
   y = y_jb;
 }
-void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X, 
+void calcKin_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X, 
 		Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -674,10 +674,10 @@ void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   x = x_jb;
   y = y_jb;
 }
-void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X, 
+void calcKin_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X, 
 		Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -700,7 +700,7 @@ void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
 }
 // DIS case ep -> e'X
 // Q2
-Double_t calcQ2_JB(TLorentzVector e, TLorentzVector HFS){
+Double_t calcQ2_JB(const TLorentzVector& e, const TLorentzVector& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -711,8 +711,8 @@ Double_t calcQ2_JB(TLorentzVector e, TLorentzVector HFS){
 
   return Q2_jb;
 }
-Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS){
+Double_t calcQ2_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -723,8 +723,8 @@ Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
 
   return Q2_jb;
 }
-Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS){
+Double_t calcQ2_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -736,7 +736,7 @@ Double_t calcQ2_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return Q2_jb;
 }
 // x
-Double_t calcX_JB(TLorentzVector e, TLorentzVector p, TLorentzVector HFS){
+Double_t calcX_JB(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -748,9 +748,9 @@ Double_t calcX_JB(TLorentzVector e, TLorentzVector p, TLorentzVector HFS){
   
   return x_jb;
 }
-Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS){
+Double_t calcX_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -762,9 +762,9 @@ Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   
   return x_jb;
 }
-Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS){
+Double_t calcX_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -777,7 +777,7 @@ Double_t calcX_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return x_jb;
 }
 // y
-Double_t calcY_JB(TLorentzVector e, TLorentzVector HFS){
+Double_t calcY_JB(const TLorentzVector& e, const TLorentzVector& HFS){
   // Intermediate variables
   Float_t sigma_h = HFS.E() - HFS.Z();
   
@@ -786,8 +786,8 @@ Double_t calcY_JB(TLorentzVector e, TLorentzVector HFS){
 
   return y_jb;
 }
-Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,  
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS){
+Double_t calcY_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e,  
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS){
   // Intermediate variables
   Float_t sigma_h = HFS.E() - HFS.Z();
   
@@ -796,8 +796,8 @@ Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
 
   return y_jb;
 }
-Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,  
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS){
+Double_t calcY_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e,  
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS){
   // Intermediate variables
   Float_t sigma_h = HFS.E() - HFS.Z();
   
@@ -807,7 +807,7 @@ Double_t calcY_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return y_jb;
 }
 // Calculate all 3 kinematic variables (Q2, x, y) simultaneously and pass them to holding variables 
-void calcKin_JB(TLorentzVector e, TLorentzVector p, TLorentzVector HFS, Float_t &Q2, Float_t &x, Float_t &y){
+void calcKin_JB(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& HFS, Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
   x = 0;
@@ -827,9 +827,9 @@ void calcKin_JB(TLorentzVector e, TLorentzVector p, TLorentzVector HFS, Float_t 
   x = x_jb;
   y = y_jb;
 }
-void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS, 
+void calcKin_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS, 
 		Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -850,9 +850,9 @@ void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   x = x_jb;
   y = y_jb;
 }
-void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS, 
+void calcKin_JB(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS, 
 		Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -877,7 +877,7 @@ void calcKin_JB(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
 // Calculate inclusive kinematics (Q2, x, y) with the DA method
 // SIDIS case ep -> e'p'X
 // Q2
-Double_t calcQ2_DA(TLorentzVector e, TLorentzVector ep, TLorentzVector pp, TLorentzVector X){
+Double_t calcQ2_DA(const TLorentzVector& e, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -889,10 +889,10 @@ Double_t calcQ2_DA(TLorentzVector e, TLorentzVector ep, TLorentzVector pp, TLore
 
   return Q2_da;
 }
-Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X){
+Double_t calcQ2_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -904,10 +904,10 @@ Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
 
   return Q2_da;
 }
-Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X){
+Double_t calcQ2_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -920,7 +920,7 @@ Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return Q2_da;
 }
 // x
-Double_t calcX_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X){
+Double_t calcX_DA(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -934,11 +934,11 @@ Double_t calcX_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorent
 
   return x_da;
 }
-Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X){
+Double_t calcX_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -952,11 +952,11 @@ Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
 
   return x_da;
 }
-Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X){
+Double_t calcX_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -971,7 +971,7 @@ Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return x_da;
 }
 // y
-Double_t calcY_DA(TLorentzVector ep, TLorentzVector pp, TLorentzVector X){
+Double_t calcY_DA(const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -983,9 +983,9 @@ Double_t calcY_DA(TLorentzVector ep, TLorentzVector pp, TLorentzVector X){
 
   return y_da;
 }
-Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X){
+Double_t calcY_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -997,9 +997,9 @@ Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep,
 
   return y_da;
 }
-Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X){
+Double_t calcY_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -1012,7 +1012,7 @@ Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep,
   return y_da;
 }
 // Calculate all 3 kinematic variables (Q2, x, y) simultaneously and pass them to holding variables 
-void calcKin_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X, Float_t &Q2, Float_t &x, Float_t &y){
+void calcKin_DA(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X, Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
   x = 0;
@@ -1035,11 +1035,11 @@ void calcKin_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzV
   x = x_da;
   y = y_da;
 }
-void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X, 
+void calcKin_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X, 
 		Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -1063,11 +1063,11 @@ void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   x = x_da;
   y = y_da;
 }
-void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X, 
+void calcKin_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X, 
 		Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -1093,7 +1093,7 @@ void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
 }
 // DIS case ep -> e'X
 // Q2
-Double_t calcQ2_DA(TLorentzVector e, TLorentzVector ep, TLorentzVector HFS){
+Double_t calcQ2_DA(const TLorentzVector& e, const TLorentzVector& ep, const TLorentzVector& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1105,9 +1105,9 @@ Double_t calcQ2_DA(TLorentzVector e, TLorentzVector ep, TLorentzVector HFS){
 
   return Q2_da;
 }
-Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS){
+Double_t calcQ2_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1119,9 +1119,9 @@ Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
 
   return Q2_da;
 }
-Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep,  
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS){
+Double_t calcQ2_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep,  
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1134,7 +1134,7 @@ Double_t calcQ2_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return Q2_da;
 }
 // x
-Double_t calcX_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS){
+Double_t calcX_DA(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1148,10 +1148,10 @@ Double_t calcX_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorent
 
   return x_da;
 }
-Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS){
+Double_t calcX_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1165,10 +1165,10 @@ Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
 
   return x_da;
 }
-Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS){
+Double_t calcX_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1183,7 +1183,7 @@ Double_t calcX_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return x_da;
 }
 // y
-Double_t calcY_DA(TLorentzVector ep, TLorentzVector HFS){
+Double_t calcY_DA(const TLorentzVector& ep, const TLorentzVector& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1195,8 +1195,8 @@ Double_t calcY_DA(TLorentzVector ep, TLorentzVector HFS){
 
   return y_da;
 }
-Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS){
+Double_t calcY_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1208,8 +1208,8 @@ Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep,
 
   return y_da;
 }
-Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		  ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS){
+Double_t calcY_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		  const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1222,7 +1222,7 @@ Double_t calcY_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep,
   return y_da;
 }
 // Calculate all 3 kinematic variables (Q2, x, y) simultaneously and pass them to holding variables 
-void calcKin_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS, Float_t &Q2, Float_t &x, Float_t &y){
+void calcKin_DA(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS, Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
   x = 0;
@@ -1245,10 +1245,10 @@ void calcKin_DA(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzV
   x = x_da;
   y = y_da;
 }
-void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS, 
+void calcKin_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS, 
 		Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -1272,10 +1272,10 @@ void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   x = x_da;
   y = y_da;
 }
-void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p,
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS, 
+void calcKin_DA(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p,
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS, 
 		Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -1303,7 +1303,7 @@ void calcKin_DA(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
 // Calculate inclusive kinematics (Q2, x, y) with the Sigma method
 // SIDIS case ep -> e'p'X
 // Q2
-Double_t calcQ2_Sigma(TLorentzVector ep, TLorentzVector pp, TLorentzVector X){
+Double_t calcQ2_Sigma(const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -1317,9 +1317,9 @@ Double_t calcQ2_Sigma(TLorentzVector ep, TLorentzVector pp, TLorentzVector X){
   
   return Q2_sigma;
 }
-Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X){
+Double_t calcQ2_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -1333,9 +1333,9 @@ Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e
   
   return Q2_sigma;
 }
-Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X){
+Double_t calcQ2_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -1350,7 +1350,7 @@ Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e
   return Q2_sigma;
 }
 // x
-Double_t calcX_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X){
+Double_t calcX_Sigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -1365,11 +1365,11 @@ Double_t calcX_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLor
   
   return x_sigma;
 }
-Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X){
+Double_t calcX_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -1384,11 +1384,11 @@ Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   
   return x_sigma;
 }
-Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X){
+Double_t calcX_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -1404,7 +1404,7 @@ Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return x_sigma;
 }
 // y
-Double_t calcY_Sigma(TLorentzVector ep, TLorentzVector pp, TLorentzVector X){
+Double_t calcY_Sigma(const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -1416,9 +1416,9 @@ Double_t calcY_Sigma(TLorentzVector ep, TLorentzVector pp, TLorentzVector X){
 
   return y_sigma;
 }
-Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X){
+Double_t calcY_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -1430,9 +1430,9 @@ Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep
 
   return y_sigma;
 }
-Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X){
+Double_t calcY_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X){
   // Intermediate variables
   Float_t pT2_h = TMath::Power((pp+X).X(),2) + TMath::Power((pp+X).Y(),2);
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
@@ -1445,7 +1445,7 @@ Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep
   return y_sigma;
 }
 // Calculate all 3 kinematic variables (Q2, x, y) simultaneously and pass them to holding variables 
-void calcKin_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X, Float_t &Q2, Float_t &x, Float_t &y){
+void calcKin_Sigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X, Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
   x = 0;
@@ -1468,11 +1468,11 @@ void calcKin_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLoren
   x = x_sigma;
   y = y_sigma;
 }
-void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X, 
+void calcKin_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X, 
 		   Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -1496,11 +1496,11 @@ void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   x = x_sigma;
   y = y_sigma;
 }
-void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X, 
+void calcKin_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X, 
 		   Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -1526,7 +1526,7 @@ void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
 }
 // DIS case ep -> e'X
 // Q2
-Double_t calcQ2_Sigma(TLorentzVector ep, TLorentzVector HFS){
+Double_t calcQ2_Sigma(const TLorentzVector& ep, const TLorentzVector& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1540,8 +1540,8 @@ Double_t calcQ2_Sigma(TLorentzVector ep, TLorentzVector HFS){
   
   return Q2_sigma;
 }
-Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS){
+Double_t calcQ2_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1555,8 +1555,8 @@ Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e
   
   return Q2_sigma;
 }
-Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS){
+Double_t calcQ2_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1571,7 +1571,7 @@ Double_t calcQ2_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e
   return Q2_sigma;
 }
 // x
-Double_t calcX_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS){
+Double_t calcX_Sigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1586,10 +1586,10 @@ Double_t calcX_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLor
   
   return x_sigma;
 }
-Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS){
+Double_t calcX_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1604,10 +1604,10 @@ Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   
   return x_sigma;
 }
-Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS){
+Double_t calcX_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1623,7 +1623,7 @@ Double_t calcX_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
   return x_sigma;
 }
 // y
-Double_t calcY_Sigma(TLorentzVector ep, TLorentzVector HFS){
+Double_t calcY_Sigma(const TLorentzVector& ep, const TLorentzVector& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1635,8 +1635,8 @@ Double_t calcY_Sigma(TLorentzVector ep, TLorentzVector HFS){
 
   return y_sigma;
 }
-Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS){
+Double_t calcY_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1648,8 +1648,8 @@ Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep
 
   return y_sigma;
 }
-Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		     ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS){
+Double_t calcY_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		     const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS){
   // Intermediate variables
   Float_t pT2_h = TMath::Power(HFS.X(),2) + TMath::Power(HFS.Y(),2);
   Float_t sigma_h = HFS.E() - HFS.Z();
@@ -1662,7 +1662,7 @@ Double_t calcY_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep
   return y_sigma;
 }
 // Calculate all 3 kinematic variables (Q2, x, y) simultaneously and pass them to holding variables 
-void calcKin_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS, Float_t &Q2, Float_t &x, Float_t &y){
+void calcKin_Sigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS, Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
   x = 0;
@@ -1685,10 +1685,10 @@ void calcKin_Sigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLoren
   x = x_sigma;
   y = y_sigma;
 }
-void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS, 
+void calcKin_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS, 
 		   Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -1712,10 +1712,10 @@ void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   x = x_sigma;
   y = y_sigma;
 }
-void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		   ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS, 
+void calcKin_Sigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS, 
 		   Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -1743,7 +1743,7 @@ void calcKin_Sigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
 // Calculate inclusive kinematics (Q2, x, y) with the e-Sigma method
 // SIDIS case ep -> e'p'X
 // Q2
-Double_t calcQ2_ESigma(TLorentzVector e, TLorentzVector ep){
+Double_t calcQ2_ESigma(const TLorentzVector& e, const TLorentzVector& ep){
   // Intermediate variables
   Float_t pT2_e = ep.Perp() * ep.Perp();
   Float_t sigma_e = ep.E() - ep.Z();
@@ -1754,8 +1754,8 @@ Double_t calcQ2_ESigma(TLorentzVector e, TLorentzVector ep){
 
   return Q2_e;
 }
-Double_t calcQ2_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		       ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep){
+Double_t calcQ2_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		       const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep){
   // Intermediate variables
   Float_t pT2_e = ep.Pt() * ep.Pt();
   Float_t sigma_e = ep.E() - ep.Z();
@@ -1766,8 +1766,8 @@ Double_t calcQ2_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> 
 
   return Q2_e;
 }
-Double_t calcQ2_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		       ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep){
+Double_t calcQ2_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		       const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep){
   // Intermediate variables
   Float_t pT2_e = ep.Pt() * ep.Pt();
   Float_t sigma_e = ep.E() - ep.Z();
@@ -1779,7 +1779,7 @@ Double_t calcQ2_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> 
   return Q2_e;
 }
 // x
-Double_t calcX_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X){
+Double_t calcX_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X){
   // Intermediate variables
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
   Float_t pT2_e = ep.Perp() * ep.Perp();
@@ -1793,11 +1793,11 @@ Double_t calcX_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLo
 
   return x_sigma;
 }
-Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X){
+Double_t calcX_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X){
   // Intermediate variables
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
   Float_t pT2_e = ep.Pt() * ep.Pt();
@@ -1811,11 +1811,11 @@ Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e
 
   return x_sigma;
 }
-Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X){
+Double_t calcX_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X){
   // Intermediate variables
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
   Float_t pT2_e = ep.Pt() * ep.Pt();
@@ -1830,7 +1830,7 @@ Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e
   return x_sigma;
 }
 // y
-Double_t calcY_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X){
+Double_t calcY_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X){
   // Intermediate variables
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
   Float_t pT2_e = ep.Perp() * ep.Perp();
@@ -1851,11 +1851,11 @@ Double_t calcY_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLo
 
   return y_esigma;
 }
-Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X){
+Double_t calcY_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X){
   // Intermediate variables
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
   Float_t pT2_e = ep.Pt() * ep.Pt();
@@ -1876,11 +1876,11 @@ Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e
 
   return y_esigma;
 }
-Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X){
+Double_t calcY_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X){
   // Intermediate variables
   Float_t sigma_h = (pp+X).E() - (pp+X).Z();
   Float_t pT2_e = ep.Pt() * ep.Pt();
@@ -1902,7 +1902,7 @@ Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e
   return y_esigma;
 }
 // Calculate all 3 kinematic variables (Q2, x, y) simultaneously and pass them to holding variables 
-void calcKin_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector pp, TLorentzVector X, Float_t &Q2, Float_t &x, Float_t &y){
+void calcKin_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& pp, const TLorentzVector& X, Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
   x = 0;
@@ -1931,11 +1931,11 @@ void calcKin_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLore
   x = x_sigma;
   y = y_esigma;
 }
-void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> pp, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> X, 
+void calcKin_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& pp, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& X, 
 		    Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -1965,11 +1965,11 @@ void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   x = x_sigma;
   y = y_esigma;
 }
-void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> pp, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> X, 
+void calcKin_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& pp, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& X, 
 		    Float_t &Q2, Float_t &x, Float_t &y){
   // Reset kinematic variables
   Q2 = 0;
@@ -2002,7 +2002,7 @@ void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e,
 // DIS case ep -> e'X
 // NO NEED TO REDEFINE Q2 - ONLY DEPENDS ON BEAM AND SCATTERED ELECTRON
 // x
-Double_t calcX_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS){
+Double_t calcX_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS){
   // Intermediate variables
   Float_t sigma_h = HFS.E() - HFS.Z();
   Float_t pT2_e = ep.Perp() * ep.Perp();
@@ -2016,10 +2016,10 @@ Double_t calcX_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLo
 
   return x_sigma;
 }
-Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS){
+Double_t calcX_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS){
   // Intermediate variables
   Float_t sigma_h = HFS.E() - HFS.Z();
   Float_t pT2_e = ep.Pt() * ep.Pt();
@@ -2033,10 +2033,10 @@ Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e
 
   return x_sigma;
 }
-Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS){
+Double_t calcX_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS){
   // Intermediate variables
   Float_t sigma_h = HFS.E() - HFS.Z();
   Float_t pT2_e = ep.Pt() * ep.Pt();
@@ -2051,7 +2051,7 @@ Double_t calcX_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e
   return x_sigma;  
 }
 // y
-Double_t calcY_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS){
+Double_t calcY_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS){
   // Intermediate variables
   Float_t sigma_h = HFS.E() - HFS.Z();
   Float_t pT2_e = ep.Perp() * ep.Perp();
@@ -2072,10 +2072,10 @@ Double_t calcY_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLo
 
   return y_esigma;
 }
-Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS){
+Double_t calcY_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS){
   // Intermediate variables
   Float_t sigma_h = HFS.E() - HFS.Z();
   Float_t pT2_e = ep.Pt() * ep.Pt();
@@ -2096,10 +2096,10 @@ Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e
 
   return y_esigma;
 }
-Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		      ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS){
+Double_t calcY_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		      const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS){
   // Intermediate variables
   Float_t sigma_h = HFS.E() - HFS.Z();
   Float_t pT2_e = ep.Pt() * ep.Pt();
@@ -2121,7 +2121,7 @@ Double_t calcY_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e
   return y_esigma;
 }
 // Calculate all 3 kinematic variables (Q2, x, y) simultaneously and pass them to holding variables 
-void calcKin_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLorentzVector HFS, Float_t &Q2, Float_t &x, Float_t &y){
+void calcKin_ESigma(const TLorentzVector& e, const TLorentzVector& p, const TLorentzVector& ep, const TLorentzVector& HFS, Float_t &Q2, Float_t &x, Float_t &y){
    // Reset kinematic variables
   Q2 = 0;
   x = 0;
@@ -2150,10 +2150,10 @@ void calcKin_ESigma(TLorentzVector e, TLorentzVector p, TLorentzVector ep, TLore
   x = x_sigma;
   y = y_esigma;
 }
-void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> ep, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> HFS, 
+void calcKin_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& ep, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& HFS, 
 		    Float_t &Q2, Float_t &x, Float_t &y){
    // Reset kinematic variables
   Q2 = 0;
@@ -2183,10 +2183,10 @@ void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> e,
   x = x_sigma;
   y = y_esigma;
 }
-void calcKin_ESigma(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> e, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> p, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> ep, 
-		    ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>> HFS, 
+void calcKin_ESigma(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& e, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& p, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& ep, 
+		    const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double>>& HFS, 
 		    Float_t &Q2, Float_t &x, Float_t &y){
    // Reset kinematic variables
   Q2 = 0;
